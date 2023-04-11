@@ -1,12 +1,15 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 import styles from './styles.module.css'
 
 export default function Footer(): JSX.Element {
+  const { t } = useTranslation('footer')
+
   return (
     <footer className={styles.footer}>
-      <p>© {new Date().getFullYear()} Dinosaur. Усі права захищені.</p>
-      <p>Гра створена Денисом та Іоанною. Гра поширюється безкоштовно.</p>
+      <p>&#xa9;{new Date().getFullYear() + ' ' + t('paragraph1')}</p>
+      <p>{t('paragraph2')}</p>
     </footer>
   )
 }

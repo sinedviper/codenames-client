@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { store } from 'store'
 import { MainPage } from 'page'
 
-import './App.css'
+import './i18n'
 
 const router = createBrowserRouter([
   {

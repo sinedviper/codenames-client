@@ -1,0 +1,8 @@
+{
+  "buttons": {
+    "start": "Start",
+    "connect": "Connect",
+    "rules": "Rules",
+    "account": "Account"
+  }
+}
