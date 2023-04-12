@@ -1,3 +1,2 @@
-import mainComponent from './MainComponent'
-
-export const MainComponent = mainComponent
+export * from './MainComponent'
+export * from './Button'
