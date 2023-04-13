@@ -1,0 +1,69 @@
+.modal_wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    transition: var(--transition);
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+    cursor: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal_wrap_active {
+    opacity: 1;
+    pointer-events: fill;
+    cursor: default;
+    transition: var(--transition);
+}
+
+.block_modal {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 500px;
+    background: var(--secondary-dark);
+    border-radius: 15px;
+    padding: 20px;
+    transform: translateY(-50px);
+    transition: var(--transition);
+}
+
+.block_modal_active {
+    transform: translateY(0);
+    transition: var(--transition);
+}
+
+.block_close {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.block_close > button {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 5px;
+    transition: var(--transition);
+}
+
+.block_close > button:hover {
+    background: var(--primary-light);
+    transition: var(--transition);
+}
+
+.block_close > button >  svg {
+    fill: var(--light);
+}

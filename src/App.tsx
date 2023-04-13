@@ -40,7 +40,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme='light'
+        theme={theme ? 'dark' : 'light'}
       />
       <RouterProvider router={router} />
     </>

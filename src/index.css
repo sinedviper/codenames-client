@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:  'Roboto', sans-serif;
+  font-family: Alegreya sans;
 }
 
 a {
@@ -14,21 +16,32 @@ li {
 }
 
 :root {
+  --dark: #242424;
+  --light: #fff;
+
   --primary: #007242;
+  --primary-dark: #2F4858;
+  --primary-light: #006461;
+
+  --secondary: #006C55;
+  --secondary-dark: #175162;
+  --secondary-light: #005B65;
 
   --transition: all 0.3s ease-in-out;;
 }
 
 /* -------- THEME LIGHT -------- */
 body[data-theme="light"] {
-  --background: #d5d5d5;
-  --color: #18211f;
+  --background: #fff;
+  --color: #000;
+  --theme: #f3d86f;
 }
 
 /* -------- THEME DARK -------- */
 body[data-theme="dark"] {
-  --background: #18211f;
-  --color: #d5d5d5;
+  --background: #242424;
+  --color: #fff;
+  --theme: #fff;
 }
 
 #root {
