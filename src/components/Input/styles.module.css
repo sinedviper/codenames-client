@@ -1,0 +1,21 @@
+.input {
+    padding: 10px 20px;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    transition: var(--transition);
+}
+
+.input::placeholder {
+    font-size: 18px;
+}
+
+.input:hover {
+    transition: var(--transition);
+    box-shadow: 0 0 0 2px var(--warning);
+}
+.input:focus {
+    transition: var(--transition);
+    box-shadow: 0 0 0 2px var(--warning);
+}

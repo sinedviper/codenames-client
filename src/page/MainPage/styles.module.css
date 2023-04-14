@@ -52,3 +52,16 @@
     height: 20px;
     transition: var(--transition);
 }
+
+.nickname_circle {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 46px;
+    font-weight: 700;
+    margin: 0 auto;
+}

@@ -18,6 +18,8 @@ li {
 :root {
   --dark: #242424;
   --light: #fff;
+  --warning: #fd8411;
+  --success: #5ee161;
 
   --primary: #007242;
   --primary-dark: #2F4858;

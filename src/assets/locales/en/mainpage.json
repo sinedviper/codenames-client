@@ -4,5 +4,16 @@
     "connect": "Connect",
     "rules": "Rules",
     "account": "Account"
+  },
+  "connect": {
+    "title": "Enter the code to join the game",
+    "placeholder": "Enter code",
+    "button": "Connect"
+  },
+  "account": {
+    "titlenick": "Please fill in the field",
+    "placeholder": "Nickname",
+    "titlecolor": "Choose your color",
+    "button": "Save"
   }
 }

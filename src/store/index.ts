@@ -11,10 +11,11 @@ import {
   REGISTER,
 } from 'redux-persist'
 
-import { themeReducer } from './slice'
+import { themeReducer, userReducer } from './slice'
 
 const reducer = combineReducers({
   theme: themeReducer,
+  user: userReducer,
 })
 
 const persistConfig = {

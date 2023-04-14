@@ -1,3 +1,7 @@
 export * from './MainComponent'
 export * from './Button'
 export * from './ModalWindow'
+export * from './Input'
+export * from './Header2'
+export * from './InputColor'
+export * from './Header3'

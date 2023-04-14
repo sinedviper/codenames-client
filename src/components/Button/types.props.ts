@@ -4,4 +4,5 @@ export default interface ButtonsProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   children: ReactNode
   notAllow?: boolean
+  color?: 'warning'
 }

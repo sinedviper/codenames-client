@@ -6,6 +6,7 @@ import styles from './styles.module.css'
 
 export const Button = ({
   className,
+  color,
   notAllow,
   children,
   onMouseUp,
@@ -29,6 +30,7 @@ export const Button = ({
       className={cn(styles.button, className, {
         [styles.button_click]: click,
         [styles.button_block]: notAllow,
+        [styles.button_warning]: color === 'warning',
       })}
       onMouseDown={handleClickDown}
       onMouseUp={handleClickUp}
