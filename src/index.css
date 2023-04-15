@@ -20,6 +20,9 @@ li {
   --light: #fff;
   --warning: #fd8411;
   --success: #5ee161;
+  --yellow: #f3d86f;
+  --pink: #ff5bbe;
+  --blue: #4091cc;
 
   --primary: #007242;
   --primary-dark: #2F4858;
@@ -36,7 +39,8 @@ li {
 body[data-theme="light"] {
   --background: #fff;
   --color: #000;
-  --theme: #f3d86f;
+  --theme: var(--yellow);
+  --theme-block: var(--blue);
 }
 
 /* -------- THEME DARK -------- */
@@ -44,6 +48,7 @@ body[data-theme="dark"] {
   --background: #242424;
   --color: #fff;
   --theme: #fff;
+  --theme-block: var(--pink);
 }
 
 #root {

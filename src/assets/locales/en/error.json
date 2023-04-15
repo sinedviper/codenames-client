@@ -2,5 +2,6 @@
   "not_user": "Please fill in your account in the settings",
   "input_null": "The field cannot be empty",
   "input_large_25": "The string should be no more than 25 characters long",
-  "input_english_check": "The string should contain only English letters and numbers"
+  "input_english_check": "The string should contain only English letters and numbers",
+  "input_large_10": "The field must contain 10 characters"
 }

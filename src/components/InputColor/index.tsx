@@ -5,7 +5,7 @@ import InputColorProps from './types.props'
 import styles from './styles.module.css'
 
 export const InputColor = ({
-  colorChoose,
+  value,
   setChange,
   className,
   ...props
@@ -20,12 +20,13 @@ export const InputColor = ({
   return (
     <div className={styles.color}>
       <input
+        value={value}
         onChange={handleChangeColor}
         className={cn(styles.input, className)}
         type={'color'}
         {...props}
       />
-      <div style={{ background: colorChoose ?? colorIput }}></div>
+      <div style={{ background: value ?? colorIput }}></div>
     </div>
   )
 }

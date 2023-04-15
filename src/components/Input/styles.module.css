@@ -1,4 +1,11 @@
+.wrapper_input {
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
 .input {
+    width: 100%;
     padding: 10px 20px;
     font-size: 18px;
     outline: none;
@@ -18,4 +25,30 @@
 .input:focus {
     transition: var(--transition);
     box-shadow: 0 0 0 2px var(--warning);
+}
+
+.question {
+    position: absolute;
+    z-index: 2;
+    top: -15px;
+    right: -20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.question > svg {
+    width: 30px;
+    height: 30px;
+}
+
+.question > svg > path {
+    transition: var(--transition);
+}
+
+.question:hover > svg > path {
+    stroke: var(--yellow);
+    transition: var(--transition);
 }
