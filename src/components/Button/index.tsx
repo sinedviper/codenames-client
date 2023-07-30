@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import cn from 'classnames'
 
 import ButtonsProps from './types.props'
-import styles from './styles.module.css'
+import s from './styles.module.css'
 
 export const Button = ({
   className,
   color,
-  notAllow,
   children,
+  disabled,
   onMouseUp,
   onMouseDown,
   ...props
@@ -27,11 +27,15 @@ export const Button = ({
 
   return (
     <button
-      className={cn(styles.button, className, {
-        [styles.button_click]: click,
-        [styles.button_block]: notAllow,
-        [styles.button_warning]: color === 'warning',
+      className={cn(className, s.button, {
+        [s.button_click]: click,
+        [s.button_orange]: color === 'orange',
+        [s.button_pink]: color === 'pink',
+        [s.button_purple]: color === 'purple',
+        [s.button_blue]: color === 'blue',
+        [s.button_green]: color === 'green',
       })}
+      disabled={disabled}
       onMouseDown={handleClickDown}
       onMouseUp={handleClickUp}
       {...props}

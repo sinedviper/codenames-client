@@ -10,7 +10,7 @@ export const InputColor = ({
   className,
   ...props
 }: InputColorProps): JSX.Element => {
-  const [colorIput, setColorInput] = useState('#000000')
+  const [colorInput, setColorInput] = useState('#000000')
 
   const handleChangeColor = (e) => {
     setColorInput(e.target.value)
@@ -26,7 +26,7 @@ export const InputColor = ({
         type={'color'}
         {...props}
       />
-      <div style={{ background: value ?? colorIput }}></div>
+      <div style={{ background: value ?? colorInput }} />
     </div>
   )
 }

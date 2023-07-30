@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next'
 import { languageType } from 'utils/types'
 
 import ButtonLanguageProps from './types.props'
-import styles from './styles.module.css'
+import s from './styles.module.css'
 
 export const ButtonLanguage = ({ className, ...props }: ButtonLanguageProps): JSX.Element => {
   const { i18n } = useTranslation()
@@ -16,18 +16,17 @@ export const ButtonLanguage = ({ className, ...props }: ButtonLanguageProps): JS
     i18n.changeLanguage(lang === 'uk' ? 'en' : 'uk')
   }
 
+  const getLanguage = (lang: languageType) => {
+    return lang === 'uk' ? 'УКР' : 'ENG'
+  }
+
   return (
     <button
-      className={cn(styles.button, className)}
+      className={cn(s.button, className)}
       onClick={() => handleSelectLang(i18n.language as languageType)}
       {...props}
     >
-      <SvgLanguage />
-      <img
-        src={i18n.language === 'uk' ? ImgUkrane : ImgUsa}
-        className={styles.label}
-        alt={'country'}
-      />
+      <p className={s.language_text}>{getLanguage(i18n.language as languageType)}</p>
     </button>
   )
 }

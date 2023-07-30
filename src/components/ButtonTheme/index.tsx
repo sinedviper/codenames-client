@@ -19,7 +19,7 @@ export const ButtonTheme = ({ className, ...props }: ButtonThemeProps): JSX.Elem
   }
 
   return (
-    <button className={cn(styles.button, className)} onClick={handleChangeTheme} {...props}>
+    <button className={cn(className, styles.button)} onClick={handleChangeTheme} {...props}>
       {theme ? <SvgDark /> : <SvgLight />}
     </button>
   )

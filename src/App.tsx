@@ -9,6 +9,7 @@ import { getTheme } from 'store/select'
 import { MainPage } from 'page'
 
 import './i18n'
+import { FooterComponent } from 'pages-components'
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,7 @@ function App() {
         theme={theme ? 'dark' : 'light'}
       />
       <RouterProvider router={router} />
+      <FooterComponent />
     </>
   )
 }

@@ -6,7 +6,7 @@ import styles from './styles.module.css'
 
 export const Text = ({ className, children, ...props }: TextProps): JSX.Element => {
   return (
-    <p className={cn(styles.header, className)} {...props}>
+    <p className={cn(className, styles.header)} {...props}>
       {children}
     </p>
   )

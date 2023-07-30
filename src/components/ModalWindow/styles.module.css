@@ -12,8 +12,8 @@
     cursor: none;
     display: flex;
     flex-direction: column;
+    padding: 150px 20px 20px;
     align-items: center;
-    justify-content: center;
 }
 
 .modal_wrap_active {
@@ -29,11 +29,24 @@
     gap: 20px;
     width: 100%;
     max-width: 500px;
-    background: var(--secondary-dark);
-    border-radius: 15px;
+    background: var(--grey-d);
+    border-radius: 5px;
     padding: 20px;
     transform: translateY(-50px);
     transition: var(--transition);
+    max-height: 700px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.block_modal::-webkit-scrollbar {
+    background: var(--grey-l);
+    border-radius: 30px;
+    width: 10px;
+}
+.block_modal::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 30px;
 }
 
 .block_modal_active {
@@ -60,7 +73,7 @@
 }
 
 .block_close > button:hover {
-    background: var(--primary-light);
+    background: var(--primary);
     transition: var(--transition);
 }
 
