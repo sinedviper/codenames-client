@@ -10,7 +10,7 @@ import styles from './styles.module.css'
 import { ModalWrapper } from '../../pages-components/ModalWrapper'
 
 export default function MainPage(): JSX.Element {
-  const { t } = useTranslation(['main', 'error', 'info'])
+  const { t } = useTranslation(['main', 'error'])
 
   const user = useAppSelector(getUser)
 
@@ -19,6 +19,7 @@ export default function MainPage(): JSX.Element {
   const [modalAccount, setModalAccount] = useState(false)
   const [modalRules, setModalRules] = useState(false)
   const [modalConnect, setModalConnect] = useState(false)
+  const [modalStart, setModalStart] = useState(false)
 
   const modalWrapperConst = {
     modalAccount,
@@ -27,11 +28,15 @@ export default function MainPage(): JSX.Element {
     setModalRules,
     modalConnect,
     setModalConnect,
+    modalStart,
+    setModalStart,
   }
 
   const handleClickStart = () => {
     if (!userHave) {
       toast.error(t('not_user', { ns: 'error' }))
+    } else {
+      setModalStart(true)
     }
   }
 

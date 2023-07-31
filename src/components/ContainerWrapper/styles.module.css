@@ -9,6 +9,23 @@
     gap: 5px;
 }
 
+.wrapper::-webkit-scrollbar {
+    background: var(--grey-l);
+    border-radius: 30px;
+    width: 5px;
+}
+.wrapper::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 30px;
+}
+
+.wrap_none {
+    justify-content: flex-start;
+    padding: 0 10px 0 0;
+    gap: 10px;
+    overflow-y: auto;
+}
+
 .wrap_orange {
     border: 2px solid var(--warning);
 }

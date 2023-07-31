@@ -13,6 +13,7 @@ export const ContainerWrapper = ({
   return (
     <div
       className={cn(className, s.wrapper, {
+        [s.wrap_none]: color === 'none',
         [s.wrap_orange]: color === 'orange',
         [s.wrap_purple]: color === 'purple',
         [s.wrap_green]: color === 'green',
