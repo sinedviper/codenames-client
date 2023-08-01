@@ -27,6 +27,23 @@
     box-shadow: 0 0 0 2px var(--primary);
 }
 
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.wrap_input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+}
+
+.title {
+    color: var(--light);
+    font-weight: 600;
+}
+
 .question {
     position: absolute;
     z-index: 2;

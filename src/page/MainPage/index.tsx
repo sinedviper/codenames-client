@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next'
 import { toast } from 'react-toastify'
 
 import { MainComponent, Button, ButtonTheme, ButtonLanguage } from 'components'
+import { ModalWrapper } from 'pages-components'
 import { useAppSelector } from 'utils/hooks'
 import { getUser } from 'store/select'
 
-import styles from './styles.module.css'
-import { ModalWrapper } from '../../pages-components/ModalWrapper'
+import s from './styles.module.css'
 
 export default function MainPage(): JSX.Element {
   const { t } = useTranslation(['main', 'error'])
@@ -59,7 +59,7 @@ export default function MainPage(): JSX.Element {
   return (
     <>
       <MainComponent center={true}>
-        <div className={styles.menu}>
+        <div className={s.menu}>
           <Button disabled={!userHave} onClick={handleClickStart}>
             {t('buttons.start')}
           </Button>
@@ -70,11 +70,13 @@ export default function MainPage(): JSX.Element {
           <Button onClick={handleClickAccount}>
             {userHave ? user.nickname : t('buttons.account')}
           </Button>
-          <div className={styles.button_menu_small}>
+          <div className={s.button_menu_small}>
             <ButtonTheme />
             <ButtonLanguage />
           </div>
         </div>
+        <div className={s.block_1} />
+        <div className={s.block_2} />
         <ModalWrapper {...modalWrapperConst} />
       </MainComponent>
     </>

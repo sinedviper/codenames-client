@@ -2,7 +2,7 @@
     padding: 10px 30px;
     border: none;
     outline: none;
-    background: var(--grey-d);
+    background: var(--grey);
     color: var(--light);
     border-radius: 5px;
     transition: all 0.3s ease-in-out;

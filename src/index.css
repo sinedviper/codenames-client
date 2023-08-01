@@ -30,7 +30,7 @@ li {
   --blue: rgba(87, 210, 255, 1);
   --purple: rgba(149, 63, 189, 1);
 
-  --primary: rgba(0, 114, 66, 1);
+  --primary: rgb(0, 114, 66);
   --primary-h: rgb(0, 101, 59);
 
   --transition: all 0.3s ease-in-out;

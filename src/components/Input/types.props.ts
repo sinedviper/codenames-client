@@ -4,4 +4,6 @@ export default interface InputProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   value?: string
   question?: string
+  title?: string
+  type?: 'text' | 'number' | 'checkbox'
 }
