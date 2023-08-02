@@ -16,49 +16,48 @@ li {
 }
 
 :root {
-  --dark: rgba(15, 16, 14, 1);
-  --light: rgba(251, 251, 251, 1);
+  --dark: #040a16;
+  --light: #fbfcfe;
 
-  --grey: rgb(126, 126, 126);
-  --grey-l: rgb(175, 175, 175);
-  --grey-d: rgb(66, 66, 66);
+  --grey-l: #A9AABC;
+  --grey-d: #444655;
 
-  --warning: rgb(255, 115, 0);
-  --success: rgba(94, 225, 97, 1);
-  --yellow: rgba(238, 252, 81, 1);
-  --pink: rgba(255, 91, 190, 1);
-  --blue: rgba(87, 210, 255, 1);
-  --purple: rgba(149, 63, 189, 1);
+  --warning: #FFC35F;
+  --yellow: #F9F871;
+  --pink: #FF67A5;
+  --blue: #83A4FF;
+  --purple: #C261CC;
 
-  --primary: rgb(0, 114, 66);
-  --primary-h: rgb(0, 101, 59);
+  --primary: #3469DA;
+  --primary-h: #20438d;
+
+  --secondary: #B1C5F1;
+
+  --accent: #2150B5;
 
   --transition: all 0.3s ease-in-out;
 }
 
 /* -------- THEME LIGHT -------- */
 body[data-theme="light"] {
+  --switch-d: var(--dark);
+  --switch-l: var(--light);
+
   --background: var(--light);
   --color: var(--dark);
 
   --primary-s: rgb(0, 59, 35);
-
-  --secondary: rgba(252, 13, 72, 1);
-
-  --accent: rgba(149, 63, 189, 1);
 }
 
 /* -------- THEME DARK -------- */
 body[data-theme="dark"] {
+  --switch-d: var(--light);
+  --switch-l: var(--dark);
+
   --background: var(--dark);
   --color: var(--light);
 
   --primary-s: rgb(76, 169, 133);
-
-  --secondary: rgb(255, 107, 144);
-
-  --accent: rgb(232, 182, 253);
-
 }
 
 body {
@@ -67,7 +66,7 @@ body {
   position: relative;
   transition: var(--transition);
   background: var(--background);
-  color: var(--color);
+  color: var(--switch-d);
 }
 
 #root {

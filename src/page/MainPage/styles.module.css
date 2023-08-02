@@ -18,7 +18,7 @@
     height: 400px;
     position: absolute;
     display: flex;
-    border-radius: 100px;
+    border-radius: 15px;
     backdrop-filter: blur(10px);
     pointer-events: none;
     user-select: none;
@@ -26,13 +26,13 @@
 }
 
 .block_1 {
-    top: calc(38% - 200px);
-    left: calc(58% - 200px);
+    top: calc(28% - 200px);
+    left: calc(68% - 200px);
 }
 
 .block_2 {
-    top: calc(62% - 200px);
-    left: calc(43% - 200px);
+    top: calc(72% - 200px);
+    left: calc(33% - 200px);
 }
 
 .block_1::after, .block_2::after {
@@ -40,7 +40,7 @@
     width: 100%;
     height: 100%;
     opacity: 0.3;
-    border-radius: 100px;
+    border-radius: 15px;
 }
 
 /*.block_1::before {*/
@@ -57,10 +57,8 @@
 
 .block_1::after {
     background: var(--pink);
-    box-shadow: 50px -50px 100px 50px rgba(0,114,66,0.8);
 }
 
 .block_2::after {
-    background: var(--primary);
-    box-shadow: -50px 50px 100px 50px rgba(255,91,190,0.8);
+    background: var(--warning);
 }
