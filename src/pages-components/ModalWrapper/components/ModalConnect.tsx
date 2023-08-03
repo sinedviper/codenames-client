@@ -34,6 +34,7 @@ export const ModalConnect = ({
         value={connectValue}
         onChange={(e: any) => setConnectValue(e.target.value)}
         placeholder={String(t('connect.placeholder'))}
+        variant={1}
       />
       <Button onClick={handleConnectGame} color={'green'}>
         {t('connect.button')}

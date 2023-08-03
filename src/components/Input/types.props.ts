@@ -5,5 +5,6 @@ export default interface InputProps
   value?: string
   question?: string
   title?: string
-  type?: 'text' | 'number' | 'checkbox'
+  variant: 1 | 2 | 3 | 4
+  list?: { id: number; name: string }[]
 }

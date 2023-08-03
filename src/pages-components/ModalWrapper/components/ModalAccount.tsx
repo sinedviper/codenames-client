@@ -50,6 +50,7 @@ export const ModalAccount = ({
         value={inputNickname}
         onChange={handleChangeInput}
         placeholder={String(t('account.placeholder'))}
+        variant={1}
       />
       <Header3>{t('account.titlecolor')}</Header3>
       <InputColor value={colorChoose} setChange={handleChangeColor} />
