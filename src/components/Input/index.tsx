@@ -7,6 +7,8 @@ import { SvgArrow, SvgQuestion } from 'assets/svg'
 import { toast } from 'react-toastify'
 
 export const Input = ({
+  id,
+  name,
   value,
   question,
   className,
@@ -23,42 +25,102 @@ export const Input = ({
     }
   }
 
-  const typeVariant = (variant): JSX.Element => {
+  const handleClickSelect = (): void => {
+    setSelect(!select)
+  }
+
+  const typeVariant = (variant): JSX.Element | null => {
     switch (variant) {
       case 1: {
-        return <input value={value} className={cn(s.input, className)} type={'text'} {...props} />
+        if (typeof value === 'string' || value === undefined) {
+          return (
+            <input
+              value={value ?? ''}
+              className={cn(s.input, className)}
+              type={'text'}
+              {...props}
+            />
+          )
+        } else {
+          return null
+        }
       }
       case 2: {
-        return (
-          <input value={value} className={cn(s.input, className)} type={'checkbox'} {...props} />
-        )
+        if (typeof value === 'boolean' || value === undefined) {
+          return (
+            <input
+              checked={value ?? false}
+              className={cn(s.input, className)}
+              type={'checkbox'}
+              {...props}
+            />
+          )
+        } else {
+          return null
+        }
       }
       case 3: {
-        return <input value={value} className={cn(s.input, className)} type={'number'} {...props} />
+        if (typeof value === 'number' || value === undefined) {
+          return (
+            <input
+              value={value ?? undefined}
+              className={cn(s.input, className)}
+              type={'number'}
+              {...props}
+            />
+          )
+        } else {
+          return null
+        }
       }
       case 4: {
-        return (
-          <div className={s.wrap_select}>
-            <div className={s.select}>
-              <p className={s.choose}>{value}</p>
-              <button className={s.btn}>
-                <SvgArrow />
-              </button>
+        const handleSave = (obj: { id: string; name: string }): void => {
+          if (props.onChange) {
+            props.onChange({
+              target: { id: id ?? '', name: name ?? '', value: obj },
+            })
+            setSelect(false)
+          }
+        }
+        if (typeof value === 'object' || value === undefined) {
+          return (
+            <div className={s.wrap_select} onMouseLeave={() => setSelect(false)}>
+              <div className={s.select}>
+                <p className={s.choose}>{value?.name}</p>
+                <button className={s.btn} onClick={handleClickSelect}>
+                  <SvgArrow />
+                </button>
+              </div>
+              <div
+                className={cn(s.select_show, {
+                  [s.show_active]: select,
+                })}
+              >
+                {list?.map((obj, key) => (
+                  <div key={key} className={s.item_list} onClick={() => handleSave(obj)}>
+                    {obj.name}
+                  </div>
+                ))}
+              </div>
             </div>
-            <div
-              className={cn(s.select_show, {
-                [s.show_active]: select,
-              })}
-            >
-              {list?.map((obj, key) => (
-                <div key={key}>{obj.name}</div>
-              ))}
-            </div>
-          </div>
-        )
+          )
+        } else {
+          return null
+        }
       }
       default: {
-        return <input value={value} className={cn(s.input, className)} type={'text'} {...props} />
+        if (typeof value === 'string' || value === undefined) {
+          return (
+            <input
+              value={value ?? ''}
+              className={cn(s.input, className)}
+              type={'text'}
+              {...props}
+            />
+          )
+        } else {
+          return null
+        }
       }
     }
   }
