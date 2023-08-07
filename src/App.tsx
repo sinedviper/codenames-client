@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 
 import 'react-toastify/dist/ReactToastify.css'
 
-import { useAppSelector } from 'utils/hooks'
-import { getTheme } from 'store/select'
 import { MainPage } from 'page'
 
 import './i18n'
@@ -23,12 +21,6 @@ const router = createBrowserRouter([
 ])
 
 function App() {
-  const theme = useAppSelector(getTheme)
-
-  useEffect(() => {
-    document.body.dataset.theme = theme ? 'dark' : 'light'
-  }, [theme])
-
   return (
     <>
       <ToastContainer
@@ -41,7 +33,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme={theme ? 'dark' : 'light'}
+        theme={'dark'}
       />
       <RouterProvider router={router} />
       <FooterComponent />

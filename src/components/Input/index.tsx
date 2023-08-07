@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import cn from 'classnames'
 
 import InputProps from './types.props'
@@ -14,10 +14,13 @@ export const Input = ({
   className,
   title,
   variant,
+  onChange,
   list,
   ...props
 }: InputProps): JSX.Element => {
   const [select, setSelect] = useState(false)
+
+  const inputSelect = useRef<HTMLDivElement>(null)
 
   const handleClickInfo = () => {
     if (question) {
@@ -35,9 +38,12 @@ export const Input = ({
         if (typeof value === 'string' || value === undefined) {
           return (
             <input
-              value={value ?? ''}
+              id={id}
+              name={name}
+              value={value}
               className={cn(s.input, className)}
               type={'text'}
+              onChange={onChange}
               {...props}
             />
           )
@@ -49,9 +55,12 @@ export const Input = ({
         if (typeof value === 'boolean' || value === undefined) {
           return (
             <input
-              checked={value ?? false}
+              id={id}
+              name={name}
+              checked={value}
               className={cn(s.input, className)}
               type={'checkbox'}
+              onChange={onChange}
               {...props}
             />
           )
@@ -63,9 +72,12 @@ export const Input = ({
         if (typeof value === 'number' || value === undefined) {
           return (
             <input
+              id={id}
+              name={name}
               value={value ?? undefined}
               className={cn(s.input, className)}
               type={'number'}
+              onChange={onChange}
               {...props}
             />
           )
@@ -74,20 +86,28 @@ export const Input = ({
         }
       }
       case 4: {
-        const handleSave = (obj: { id: string; name: string }): void => {
-          if (props.onChange) {
-            props.onChange({
-              target: { id: id ?? '', name: name ?? '', value: obj },
+        const handleSave = (e, obj: { id: number; name: string }): void => {
+          if (onChange) {
+            onChange({
+              // @ts-ignore
+              target: { id, name, value: obj },
             })
-            setSelect(false)
           }
+          setSelect(false)
         }
-        if (typeof value === 'object' || value === undefined) {
+
+        console.log(inputSelect.current)
+
+        if (typeof value === 'object') {
           return (
-            <div className={s.wrap_select} onMouseLeave={() => setSelect(false)}>
-              <div className={s.select}>
+            <div
+              className={s.wrap_select}
+              onMouseLeave={() => setSelect(false)}
+              onClick={handleClickSelect}
+            >
+              <div className={s.select} ref={inputSelect}>
                 <p className={s.choose}>{value?.name}</p>
-                <button className={s.btn} onClick={handleClickSelect}>
+                <button className={s.btn}>
                   <SvgArrow />
                 </button>
               </div>
@@ -97,7 +117,7 @@ export const Input = ({
                 })}
               >
                 {list?.map((obj, key) => (
-                  <div key={key} className={s.item_list} onClick={() => handleSave(obj)}>
+                  <div key={key} className={s.item_list} onClick={(e) => handleSave(e, obj)}>
                     {obj.name}
                   </div>
                 ))}

@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'react-toastify'
 
-import { MainComponent, Button, ButtonTheme, ButtonLanguage } from 'components'
+import { MainComponent, Button, ButtonLanguage, BlobAnimation } from 'components'
 import { ModalWrapper } from 'pages-components'
 import { useAppSelector } from 'utils/hooks'
 import { getUser } from 'store/select'
@@ -60,23 +60,23 @@ export default function MainPage(): JSX.Element {
     <>
       <MainComponent center={true}>
         <div className={s.menu}>
-          <Button disabled={!userHave} onClick={handleClickStart}>
+          <Button disabled={!userHave} onClick={handleClickStart} color={'green'}>
             {t('buttons.start')}
           </Button>
-          <Button disabled={!userHave} onClick={handleClickConnect}>
+          <Button disabled={!userHave} onClick={handleClickConnect} color={'green'}>
             {t('buttons.connect')}
           </Button>
-          <Button onClick={handleClickRules}>{t('buttons.rules')}</Button>
-          <Button onClick={handleClickAccount}>
+          <Button onClick={handleClickRules} color={'green'}>
+            {t('buttons.rules')}
+          </Button>
+          <Button onClick={handleClickAccount} color={'green'}>
             {userHave ? user.nickname : t('buttons.account')}
           </Button>
           <div className={s.button_menu_small}>
-            <ButtonTheme />
             <ButtonLanguage />
           </div>
         </div>
-        <div className={s.block_1} />
-        <div className={s.block_2} />
+        <BlobAnimation className={s.blob} />
         <ModalWrapper {...modalWrapperConst} />
       </MainComponent>
     </>

@@ -31,10 +31,9 @@ export default interface InputProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   id?: string
   name?: string
-  value?: undefined | boolean | number | string | { id: number; name: string }
+  value: undefined | boolean | number | string | { id: number; name: string }
   question?: string
   title?: string
-  onChange?: (val: { target: { id?: string; name?: string; value: any } }) => void
   variant: 1 | 2 | 3 | 4
   list?: { id: number; name: string }[]
 }

@@ -13,52 +13,14 @@
     gap: 10px;
 }
 
-.block_1, .block_2 {
-    width: 400px;
-    height: 400px;
-    position: absolute;
-    display: flex;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    pointer-events: none;
-    user-select: none;
+.blob {
+    position: fixed;
+    width: 800px;
+    height: 800px;
     z-index: -1;
+
 }
 
-.block_1 {
-    top: calc(28% - 200px);
-    left: calc(68% - 200px);
-}
-
-.block_2 {
-    top: calc(72% - 200px);
-    left: calc(33% - 200px);
-}
-
-.block_1::after, .block_2::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    opacity: 0.3;
-    border-radius: 15px;
-}
-
-/*.block_1::before {*/
-/*    content: "";*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    position: absolute;*/
-/*    top: -70px;*/
-/*    right: -200px;*/
-/*    background: rgb(175,3,165);*/
-/*    background: radial-gradient(circle, rgba(175,3,165,0.3) 15%, rgba(16,158,18,0) 70%);*/
-/*    z-index: -1;*/
-/*}*/
-
-.block_1::after {
-    background: var(--pink);
-}
-
-.block_2::after {
-    background: var(--warning);
+.blob stop {
+    stop-color: #040a16;
 }

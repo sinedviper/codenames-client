@@ -12,7 +12,7 @@ type propsModalStart = {
 export const ModalStart = ({ modalStart, setModalStart }: propsModalStart): JSX.Element => {
   const { t } = useTranslation(['main'])
 
-  const formik = useFormik({
+  const formik = useFormik<initialType>({
     initialValues,
     onSubmit: (values, formikHelpers) => {
       console.log(values)
@@ -26,28 +26,59 @@ export const ModalStart = ({ modalStart, setModalStart }: propsModalStart): JSX.
         <Input
           title={'Стартовое время'}
           variant={3}
-          {...getValues({ value: 'start', formik: formik })}
+          {...getValues({ value: createGame.start, formik })}
         />
-        <Input title={'Время между раундами'} variant={3} value={undefined} />
-        <Input title={'Время раунда'} variant={3} value={undefined} />
+        <Input
+          title={'Время между раундами'}
+          variant={3}
+          {...getValues({ value: createGame.roundBetween, formik })}
+        />
+        <Input
+          title={'Время раунда'}
+          variant={3}
+          {...getValues({ value: createGame.round, formik })}
+        />
         <Input
           title={'Количество добавляемых секунд при угадывании карточки'}
           variant={3}
-          value={undefined}
+          {...getValues({ value: createGame.bonus, formik })}
         />
-        <Input title={'Закрытая комната'} variant={2} value={undefined} />
-        <Input title={'Пароль для входа'} variant={1} value={undefined} />
+        <Input
+          title={'Закрытая комната'}
+          variant={2}
+          {...getValues({ value: createGame.room, formik })}
+        />
+        <Input
+          title={'Пароль для входа'}
+          variant={1}
+          {...getValues({ value: createGame.password, formik })}
+        />
         <Input
           title={'Количество слов'}
           variant={4}
           list={list}
-          {...getValues({ value: 'words', formik })}
+          {...getValues({ value: createGame.words, formik })}
         />
-        <Input title={'Перевод карточек'} variant={2} />
+        <Input
+          title={'Перевод карточек'}
+          variant={2}
+          {...getValues({ value: createGame.translate, formik })}
+        />
       </ContainerWrapper>
       <Button color={'pink'}>Создать</Button>
     </ModalWindow>
   )
+}
+
+enum createGame {
+  start = 'start',
+  roundBetween = 'roundBetween',
+  round = 'round',
+  bonus = 'bonus',
+  room = 'room',
+  password = 'password',
+  words = 'words',
+  translate = 'translate',
 }
 
 type initialType = {
@@ -57,7 +88,7 @@ type initialType = {
   bonus: number
   room: boolean
   password: string
-  words: number
+  words: { id: number; name: string } | null
   translate: boolean
 }
 
@@ -68,7 +99,7 @@ const initialValues = {
   bonus: 15,
   room: false,
   password: '',
-  words: 24,
+  words: null,
   translate: false,
 }
 
