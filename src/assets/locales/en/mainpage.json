@@ -47,6 +47,16 @@
     "text6": "Finally, it is important to keep in mind that the main goal of the game is not only to win, but also to have a good time with friends or family. So, use the game as an opportunity for communication and fun, and don't forget to enjoy the process!"
   },
   "start": {
-    "title": "Налаштування"
+    "title": "Beginning",
+    "btn-start": "Create a room",
+    "input-check-room": "Closed room",
+    "input-pass-room": "Login password",
+    "btn-setting-help": "Advanced settings",
+    "input-start": "Start time",
+    "input-between": "Time between rounds",
+    "input-hour": "Round time",
+    "input-add-time": "The number of added seconds when guessing a word",
+    "input-words": "Number of words",
+    "input-translate": "Translation of cards"
   }
 }

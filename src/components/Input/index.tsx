@@ -96,8 +96,6 @@ export const Input = ({
           setSelect(false)
         }
 
-        console.log(inputSelect.current)
-
         if (typeof value === 'object') {
           return (
             <div

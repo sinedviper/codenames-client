@@ -1,3 +1,2 @@
-import mainPage from './MainPage'
-
-export const MainPage = mainPage
+export * from './MainPage'
+export * from './RoomPage'

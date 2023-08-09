@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify'
 
 import 'react-toastify/dist/ReactToastify.css'
 
-import { MainPage } from 'page'
+import { MainPage, RoomPage } from 'page'
 
 import './i18n'
 import { FooterComponent } from 'pages-components'
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/:room',
-    element: <></>,
+    element: <RoomPage />,
   },
 ])
 

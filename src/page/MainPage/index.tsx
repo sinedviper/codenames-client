@@ -9,7 +9,7 @@ import { getUser } from 'store/select'
 
 import s from './styles.module.css'
 
-export default function MainPage(): JSX.Element {
+export function MainPage(): JSX.Element {
   const { t } = useTranslation(['main', 'error'])
 
   const user = useAppSelector(getUser)
@@ -57,28 +57,26 @@ export default function MainPage(): JSX.Element {
   }
 
   return (
-    <>
-      <MainComponent center={true}>
-        <div className={s.menu}>
-          <Button disabled={!userHave} onClick={handleClickStart} color={'green'}>
-            {t('buttons.start')}
-          </Button>
-          <Button disabled={!userHave} onClick={handleClickConnect} color={'green'}>
-            {t('buttons.connect')}
-          </Button>
-          <Button onClick={handleClickRules} color={'green'}>
-            {t('buttons.rules')}
-          </Button>
-          <Button onClick={handleClickAccount} color={'green'}>
-            {userHave ? user.nickname : t('buttons.account')}
-          </Button>
-          <div className={s.button_menu_small}>
-            <ButtonLanguage />
-          </div>
+    <MainComponent center={true}>
+      <div className={s.menu}>
+        <Button disabled={!userHave} onClick={handleClickStart} color={'green'}>
+          {t('buttons.start')}
+        </Button>
+        <Button disabled={!userHave} onClick={handleClickConnect} color={'green'}>
+          {t('buttons.connect')}
+        </Button>
+        <Button onClick={handleClickRules} color={'green'}>
+          {t('buttons.rules')}
+        </Button>
+        <Button onClick={handleClickAccount} color={'green'}>
+          {userHave ? user.nickname : t('buttons.account')}
+        </Button>
+        <div className={s.button_menu_small}>
+          <ButtonLanguage />
         </div>
-        <BlobAnimation className={s.blob} />
-        <ModalWrapper {...modalWrapperConst} />
-      </MainComponent>
-    </>
+      </div>
+      <BlobAnimation className={s.blob} />
+      <ModalWrapper {...modalWrapperConst} />
+    </MainComponent>
   )
 }
