@@ -34,6 +34,7 @@ export const Button = ({
         [s.button_purple]: color === 'purple',
         [s.button_blue]: color === 'blue',
         [s.button_green]: color === 'green',
+        [s.button_yellow]: color === 'yellow',
       })}
       disabled={disabled}
       onMouseDown={handleClickDown}

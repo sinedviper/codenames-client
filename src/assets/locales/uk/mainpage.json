@@ -57,6 +57,7 @@
     "input-hour": "Час раунду",
     "input-add-time": "Кількість добавлених секунд при вгадуванні слова",
     "input-words": "Кількість слів",
-    "input-translate": "Переклад карток"
+    "input-translate": "Переклад карток",
+    "input-languages": "Мова карток"
   }
 }

@@ -2,7 +2,7 @@
     padding: 10px 30px;
     border: none;
     outline: none;
-    background: var(--secondary);
+    background: var(--primary);
     color: var(--dark);
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
@@ -21,23 +21,12 @@
     transition: all 0.3s ease-in-out;
 }
 
-.button:disabled {
-    background: var(--grey-l);
-    color: var(--grey-d);
-    cursor: not-allowed;
-}
-
 .button_orange {
     background: var(--orange);
 }
 
 .button_green {
-    background: var(--primary);
-}
-
-.button_green:hover {
-    transform: translateY(-3px);
-    transition: all 0.3s ease-in-out;
+    background: var(--green);
 }
 
 .button_pink {
@@ -50,6 +39,16 @@
 
 .button_blue {
     background: var(--blue);
+}
+
+.button_yellow {
+    background: var(--yellow);
+}
+
+.button:disabled {
+    background: var(--grey-l);
+    color: var(--grey-d);
+    cursor: not-allowed;
 }
 
 .button_click {

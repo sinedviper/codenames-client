@@ -57,6 +57,7 @@
     "input-hour": "Round time",
     "input-add-time": "The number of added seconds when guessing a word",
     "input-words": "Number of words",
-    "input-translate": "Translation of cards"
+    "input-translate": "Translation of cards",
+    "input-languages": "The language of the cards"
   }
 }

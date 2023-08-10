@@ -59,16 +59,14 @@ export function MainPage(): JSX.Element {
   return (
     <MainComponent center={true}>
       <div className={s.menu}>
-        <Button disabled={!userHave} onClick={handleClickStart} color={'green'}>
+        <Button disabled={!userHave} onClick={handleClickStart}>
           {t('buttons.start')}
         </Button>
-        <Button disabled={!userHave} onClick={handleClickConnect} color={'green'}>
+        <Button disabled={!userHave} onClick={handleClickConnect}>
           {t('buttons.connect')}
         </Button>
-        <Button onClick={handleClickRules} color={'green'}>
-          {t('buttons.rules')}
-        </Button>
-        <Button onClick={handleClickAccount} color={'green'}>
+        <Button onClick={handleClickRules}>{t('buttons.rules')}</Button>
+        <Button onClick={handleClickAccount}>
           {userHave ? user.nickname : t('buttons.account')}
         </Button>
         <div className={s.button_menu_small}>

@@ -1,8 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
 
-import { SvgLanguage } from 'assets/svg'
-import { ImgUkrane, ImgUsa } from 'assets/image'
 import { useTranslation } from 'react-i18next'
 import { languageType } from 'utils/types'
 

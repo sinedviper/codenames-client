@@ -36,9 +36,7 @@ export const ModalConnect = ({
         placeholder={String(t('connect.placeholder'))}
         variant={1}
       />
-      <Button onClick={handleConnectGame} color={'green'}>
-        {t('connect.button')}
-      </Button>
+      <Button onClick={handleConnectGame}>{t('connect.button')}</Button>
     </ModalWindow>
   )
 }

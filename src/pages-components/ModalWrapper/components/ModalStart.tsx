@@ -37,6 +37,12 @@ export const ModalStart = ({ modalStart, setModalStart }: propsModalStart): JSX.
         {t('start.btn-start')}
       </Button>
       <Input
+        title={t('start.input-languages') as string}
+        variant={4}
+        list={languages}
+        {...getValues({ value: createGame.languages, formik })}
+      />
+      <Input
         title={t('start.input-translate') as string}
         variant={2}
         {...getValues({ value: createGame.translate, formik })}
@@ -109,6 +115,7 @@ enum createGame {
   password = 'password',
   words = 'words',
   translate = 'translate',
+  languages = 'languages',
 }
 
 type initialType = {
@@ -120,6 +127,7 @@ type initialType = {
   password: string
   words: { id: number; name: string } | null
   translate: boolean
+  languages: { id: number; name: string } | null
 }
 
 const initialValues = {
@@ -131,6 +139,7 @@ const initialValues = {
   password: '',
   words: { id: 0, name: '16' },
   translate: false,
+  languages: { id: 0, name: 'ENG' },
 }
 
 const list = [
@@ -138,6 +147,11 @@ const list = [
   { id: 1, name: '24' },
   { id: 2, name: '32' },
   { id: 3, name: '48' },
+]
+
+const languages = [
+  { id: 0, name: 'ENG' },
+  { id: 1, name: 'УКР' },
 ]
 
 const getValues = ({ value, formik }: { value: string; formik: FormikProps<initialType> }) => {

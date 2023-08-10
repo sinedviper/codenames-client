@@ -54,9 +54,7 @@ export const ModalAccount = ({
       />
       <Header3>{t('account.titlecolor')}</Header3>
       <InputColor value={colorChoose} setChange={handleChangeColor} />
-      <Button onClick={handleSaveUser} color={'green'}>
-        {t('account.button')}
-      </Button>
+      <Button onClick={handleSaveUser}>{t('account.button')}</Button>
     </ModalWindow>
   )
 }
