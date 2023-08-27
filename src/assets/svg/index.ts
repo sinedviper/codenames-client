@@ -9,7 +9,11 @@ import { ReactComponent as pause } from './pause.svg'
 import { ReactComponent as play } from './play.svg'
 import { ReactComponent as reset } from './reset.svg'
 import { ReactComponent as exit } from './exit.svg'
+import { ReactComponent as minus } from './minus.svg'
+import { ReactComponent as plus } from './plus.svg'
 
+export const SvgMinus = minus
+export const SvgPlus = plus
 export const SvgSearch = search
 export const SvgSettings = settings
 export const SvgPause = pause

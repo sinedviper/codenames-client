@@ -33,9 +33,7 @@ export const ModalStart = ({ modalStart, setModalStart }: propsModalStart): JSX.
   return (
     <ModalWindow modal={modalStart} setModal={setModalStart}>
       <Header2>{t('start.title')}</Header2>
-      <Button color={'blue'} onClick={() => formik.submitForm()}>
-        {t('start.btn-start')}
-      </Button>
+      <Button onClick={() => formik.submitForm()}>{t('start.btn-start')}</Button>
       <Input
         title={t('start.input-languages') as string}
         variant={4}
@@ -69,7 +67,7 @@ export const ModalStart = ({ modalStart, setModalStart }: propsModalStart): JSX.
           />
         </ContainerRelativeShow>
       </div>
-      <Button color={'orange'} onClick={() => setShowSetting(!showSetting)}>
+      <Button onClick={() => setShowSetting(!showSetting)}>
         {t('start.btn-setting-help') as string}
       </Button>
       <ContainerRelativeShow show={showSetting} style={{ transition: 'all 600ms easy-in-out' }}>

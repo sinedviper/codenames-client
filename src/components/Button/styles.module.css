@@ -2,8 +2,8 @@
     padding: 10px 30px;
     border: none;
     outline: none;
-    background: var(--primary);
-    color: var(--dark);
+    background: var(--dark);
+    color: var(--light);
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
     width: 100%;
@@ -17,6 +17,7 @@
 }
 
 .button:hover {
+    background: var(--primary);
     transform: translateY(-3px);
     transition: all 0.3s ease-in-out;
 }

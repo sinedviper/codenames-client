@@ -28,8 +28,9 @@ li {
   --pink: #FF67A5;
   --blue: #83A4FF;
   --purple: #C261CC;
+  --red: #D02E4E;
 
-  --primary: #3469DA;
+  --primary: rgb(52, 105, 218);
   --primary-h: #20438d;
 
   --secondary: #B1C5F1;
