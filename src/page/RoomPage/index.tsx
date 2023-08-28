@@ -128,24 +128,6 @@ export function RoomPage(): JSX.Element {
   )
 }
 
-// <span className={s.line_horizontal} />
-// <div className={s.wrapper_users}>
-//   {users.map((val, index) => (
-//     <div key={index} className={s.user}>
-//       <div className={s.img}></div>
-//       <p className={s.name}>{val.name}</p>
-//     </div>
-//   ))}
-//   <span className={s.line_vertical} />
-//   {users.map((val, index) => (
-//     <div key={index} className={s.user}>
-//       <div className={s.img}></div>
-//       <p className={s.name}>{val.name}dddddddddddd</p>
-//     </div>
-//   ))}
-// </div>
-// <span className={s.line_horizontal} />
-
 const words = [
   'words',
   'words',

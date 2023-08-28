@@ -2,20 +2,27 @@ import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 
-import 'react-toastify/dist/ReactToastify.css'
-
-import { MainPage, RoomPage } from 'page'
-
-import './i18n'
+import { MainPage, RoomPage, RulesPage } from 'page'
 import { FooterComponent } from 'pages-components'
+import { MainWrapper } from 'components'
+
+import 'react-toastify/dist/ReactToastify.css'
+import './i18n'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <MainPage />,
+    element: <MainWrapper />,
+    children: [
+      { index: true, path: '/', element: <MainPage /> },
+      { path: 'rules', element: <RulesPage /> },
+      { path: 'profile', element: <></> },
+      { path: 'start', element: <></> },
+      { path: 'connect', element: <></> },
+    ],
   },
   {
-    path: '/:room',
+    path: '/room/:room',
     element: <RoomPage />,
   },
 ])

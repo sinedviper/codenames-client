@@ -1,7 +1,7 @@
 import React from 'react'
 import BlobProps from './types.props'
 
-export const BlobAnimation = ({ className }: BlobProps): JSX.Element => {
+export const BlobAnimation = ({ className, colorBlob, id }: BlobProps): JSX.Element => {
   return (
     <div className={className}>
       <svg
@@ -12,12 +12,12 @@ export const BlobAnimation = ({ className }: BlobProps): JSX.Element => {
         id='blobSvg'
       >
         <defs>
-          <linearGradient id='gradient' x1='0%' y1='0%' x2='0%' y2='100%'>
-            <stop offset='0%' style={{ stopColor: 'var(--secondary)' }}></stop>
-            <stop offset='100%' style={{ stopColor: 'var(--blue)' }}></stop>
+          <linearGradient id={id} x1='0%' y1='0%' x2='0%' y2='100%'>
+            <stop offset='0%' style={{ stopColor: `var(${colorBlob.first})` }}></stop>
+            <stop offset='100%' style={{ stopColor: `var(${colorBlob.second})` }}></stop>
           </linearGradient>
         </defs>
-        <path fill='url(#gradient)'>
+        <path fill={`url(#${id})`}>
           <animate
             attributeName='d'
             dur='13000ms'

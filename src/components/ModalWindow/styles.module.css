@@ -29,7 +29,6 @@
     gap: 20px;
     width: 100%;
     max-width: 500px;
-    background: var(--grey-d);
     border-radius: 5px;
     padding: 20px;
     transform: translateY(-50px);
@@ -37,6 +36,18 @@
     max-height: 700px;
     overflow: hidden;
     overflow-y: auto;
+    position: relative;
+}
+
+.block_modal:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary);
+    filter: blur(200px);
+    z-index: -1;
 }
 
 .block_modal::-webkit-scrollbar {
