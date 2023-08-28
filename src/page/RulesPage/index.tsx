@@ -1,13 +1,25 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { ContainerLi, ContainerList, ContainerWrapper, Header2, Text } from 'components'
+import { Button, ContainerLi, ContainerList, ContainerWrapper, Header2, Text } from 'components'
+import { SvgArrow } from 'assets/svg'
+
+import s from './styles.module.css'
+import { useNavigate } from 'react-router-dom'
 
 export function RulesPage(): JSX.Element {
   const { t } = useTranslation(['main'])
+  const navigate = useNavigate()
+
+  const handleClickBack = () => {
+    navigate('/')
+  }
 
   return (
-    <>
+    <div className={s.menu}>
+      <Button onClick={handleClickBack} color={'none'} className={s.btn_back}>
+        <SvgArrow /> {t('rules.btn')}
+      </Button>
       <Header2>{t('rules.title')}</Header2>
       <ContainerWrapper color={'none'}>
         <Text style={{ textAlign: 'justify' }}>{t('rules.text1')}</Text>
@@ -26,6 +38,7 @@ export function RulesPage(): JSX.Element {
                     width: '50px',
                     height: '30px',
                     background: t(`rules.text4.text.${key}.color`) ?? 'transparent',
+                    border: '2px solid var(--light)',
                   }}
                 />
                 <Text>{t(`rules.text4.text.${key}.text`)}</Text>
@@ -45,6 +58,6 @@ export function RulesPage(): JSX.Element {
           <Text style={{ textAlign: 'justify' }}>{t('rules.text6')}</Text>
         </ContainerWrapper>
       </ContainerWrapper>
-    </>
+    </div>
   )
 }

@@ -42,7 +42,7 @@ export function MainPage(): JSX.Element {
   }
 
   return (
-    <>
+    <div className={s.menu}>
       <Button disabled={!userHave} onClick={handleClickStart}>
         {t('buttons.start')}
       </Button>
@@ -56,6 +56,6 @@ export function MainPage(): JSX.Element {
       <div className={s.button_menu_small}>
         <ButtonLanguage />
       </div>
-    </>
+    </div>
   )
 }

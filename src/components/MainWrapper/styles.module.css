@@ -1,25 +1,9 @@
-.menu {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    max-width: 300px;
-}
-
-.button_menu_small {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 10px;
-}
-
-.blob_1,
-.blob_2,
-.blob_3 {
+.blob_1 {
     position: fixed;
     width: 800px;
     height: 800px;
     z-index: -1;
+    filter: blur(40px);
 }
 
 .blob stop {

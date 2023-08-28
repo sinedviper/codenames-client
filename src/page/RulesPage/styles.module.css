@@ -1,0 +1,26 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px 10px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--secondary);
+    background: var(--dark);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn_back {
+    width: auto;
+    align-self: flex-start;
+    justify-self: flex-start;
+}
+
+.btn_back > svg {
+    fill: var(--light);
+    width: 30px;
+    height: 30px;
+    transform: rotate(90deg);
+}

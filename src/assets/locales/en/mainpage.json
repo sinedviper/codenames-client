@@ -17,6 +17,7 @@
     "button": "Save"
   },
   "rules": {
+    "btn": "Back",
     "title": "Rules of the game",
     "text1": "This is an association game where two teams compete. Each of them has one leader. Teams can have from 2 to 5 players. The main goal is to be the first to guess all the words hidden under the team's color.",
     "text2": "The leader writes a word-association to the words that are on the cards under the team's color, and writes the number of words that are associated with this word, for example: 'elephant - 2'. Team players must guess these words.",
