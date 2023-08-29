@@ -1,3 +1,6 @@
 export * from './MainPage'
 export * from './RoomPage'
 export * from './RulesPage'
+export * from './ConnectPage'
+export * from './AccountPage'
+export * from './StartPage'

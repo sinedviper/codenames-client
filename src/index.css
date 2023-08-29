@@ -46,11 +46,46 @@ body {
   position: relative;
   transition: var(--transition);
   background: var(--dark);
-  color: var(--light);
+  color: var(--light)
 }
 
 #root {
   height: calc(100vh - 42px);
+  overflow: hidden;
+}
+
+.page {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-enter {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
 }
 
 /* https://www.iconfinder.com/search/icons?family=feather */

@@ -1,37 +1,35 @@
 import React, { useState } from 'react'
-
-import {
-  Button,
-  ContainerRelativeShow,
-  ContainerWrapper,
-  Header2,
-  Input,
-  ModalWindow,
-} from 'components'
 import { useTranslation } from 'react-i18next'
-import { useFormik, FormikProps } from 'formik'
 import { useNavigate } from 'react-router-dom'
+import { FormikProps, useFormik } from 'formik'
 
-type propsModalStart = {
-  modalStart: boolean
-  setModalStart: (val: boolean) => void
-}
+import { Button, ContainerRelativeShow, ContainerWrapper, Header2, Input } from 'components'
+import { SvgArrow } from 'assets/svg'
 
-export const ModalStart = ({ modalStart, setModalStart }: propsModalStart): JSX.Element => {
+import s from './styles.module.css'
+
+export function StartPage(): JSX.Element {
+  const { t } = useTranslation(['main', 'info'])
   const navigate = useNavigate()
-  const { t } = useTranslation(['main'])
 
   const [showSetting, setShowSetting] = useState(false)
 
   const formik = useFormik<initialType>({
     initialValues,
     onSubmit: (values) => {
-      navigate('/434212341')
+      navigate('/room/434212341')
     },
   })
 
+  const handleClickBack = () => {
+    navigate('/')
+  }
+
   return (
-    <ModalWindow modal={modalStart} setModal={setModalStart}>
+    <div className={s.menu}>
+      <Button onClick={handleClickBack} color={'none'} className={s.btn_back}>
+        <SvgArrow /> {t('rules.btn')}
+      </Button>
       <Header2>{t('start.title')}</Header2>
       <Button onClick={() => formik.submitForm()}>{t('start.btn-start')}</Button>
       <Input
@@ -100,7 +98,7 @@ export const ModalStart = ({ modalStart, setModalStart }: propsModalStart): JSX.
           />
         </ContainerWrapper>
       </ContainerRelativeShow>
-    </ModalWindow>
+    </div>
   )
 }
 

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 
 import s from './styles.module.css'
 
-export default function Footer(): JSX.Element {
+export function Footer(): JSX.Element {
   const { t } = useTranslation('footer')
 
   return (
