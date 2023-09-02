@@ -1,4 +1,4 @@
-export * from './MainPage'
+export * from './MenuPage'
 export * from './RoomPage'
 export * from './RulesPage'
 export * from './ConnectPage'

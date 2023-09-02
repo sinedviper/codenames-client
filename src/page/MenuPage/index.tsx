@@ -9,7 +9,7 @@ import { getUser } from 'store/select'
 import s from './styles.module.css'
 import { useNavigate } from 'react-router-dom'
 
-export function MainPage(): JSX.Element {
+export function MenuPage(): JSX.Element {
   const { t } = useTranslation(['main', 'error'])
   const navigate = useNavigate()
 
