@@ -34,11 +34,11 @@ export function MainPage(): JSX.Element {
   }
 
   const handleClickAccount = () => {
-    navigate('profile')
+    navigate('/profile')
   }
 
   const handleClickRules = () => {
-    navigate('rules')
+    navigate('/rules')
   }
 
   return (
