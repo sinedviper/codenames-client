@@ -22,7 +22,7 @@
     "jsx": "preserve",
     "noImplicitAny": false,
     "incremental": true,
-    "baseUrl": "src",
+    "baseUrl": "./src/",
     "paths": {
       "components":["components"],
       "assets":["assets"],
@@ -34,6 +34,6 @@
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
   },
   "include": [
-    "./src"
+    "src"
   ]
 }
