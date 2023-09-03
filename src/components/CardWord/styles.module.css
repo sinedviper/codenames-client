@@ -1,0 +1,70 @@
+.word_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 5px;
+    width: 200px;
+    height: 60px;
+    background: var(--green);
+    position: relative;
+}
+
+.text_word {
+    word-break: break-word;
+    text-transform: lowercase;
+    text-align: center;
+    font-size: 16px;
+    line-height: normal;
+    color: var(--light);
+}
+
+.red_word {
+    background: var(--red);
+}
+
+.grey_word {
+    background: var(--grey-l);
+}
+
+.blue_word {
+    background: var(--primary);
+}
+
+.black_word {
+    background: var(--dark);
+}
+
+.default {
+    background: var(--green);
+}
+
+.btn_translate {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: auto;
+}
+
+.btn_translate > svg path {
+    fill: var(--light);
+}
+
+.pick_users {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.pick {
+    width: 20px;
+    height: 10px;
+    border-radius: 20px;
+    border: 3px solid var(--grey-d);
+    background: var(--light);
+}

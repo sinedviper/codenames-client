@@ -11,7 +11,9 @@ import { ReactComponent as reset } from './reset.svg'
 import { ReactComponent as exit } from './exit.svg'
 import { ReactComponent as minus } from './minus.svg'
 import { ReactComponent as plus } from './plus.svg'
+import { ReactComponent as translate } from './translate.svg'
 
+export const SvgTranslate = translate
 export const SvgMinus = minus
 export const SvgPlus = plus
 export const SvgSearch = search

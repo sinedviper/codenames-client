@@ -1,0 +1,158 @@
+
+.left_team,
+.right_team {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    max-width: 230px;
+    width: 100%;
+}
+
+.left_team:after,
+.right_team:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--dark);
+    z-index: -1;
+    opacity: 0.7;
+    border-radius: 5px;
+}
+
+.shadow {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: blur(100px);
+    border-radius: 5px;
+    z-index: -1;
+}
+
+
+.left_team > .shadow {
+    background: var(--primary);
+}
+.right_team > .shadow {
+    background: var(--red);
+}
+
+.left_team > .words {
+    right: -10px;
+}
+
+.right_team >.words {
+    left: -10px;
+}
+
+.words {
+    position: absolute;
+    top: -30px;
+    font-size: 50px;
+    opacity: 0.8;
+}
+
+.title {
+    font-size: 18px;
+    line-height: normal;
+    align-self: center;
+}
+
+.wrapper_list {
+    display: flex;
+    flex-direction: column;
+}
+
+.users_wrapper, .leader {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid var(--secondary);
+    padding: 5px 0;
+    gap: 5px;
+}
+
+.button_connect {
+    display: flex;
+    flex-direction: column;
+align-self: center;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+border: none;
+font-size: 16px;
+font-weight: 900;
+color: var(--light);
+background: var(--primary);
+padding: 3px;
+}
+
+.button_connect > svg {
+    fill: var(--light);
+    width: 15px;
+    height: 15px;
+}
+
+.user {
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    align-self: flex-start;
+    width: 100%;
+}
+
+.img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    min-height: 30px;
+    min-width: 30px;
+    background: var(--green);
+}
+
+.wrapper_info_user {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2px;
+}
+
+.name,
+.balls_user {
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.words_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.phrase {
+    word-break: break-all;
+    line-height: normal;
+    font-size: 15px;
+    cursor: text;
+}

@@ -94,7 +94,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background: var(--secondary);
+    background: var(--red);
     width: 20px;
     height: 20px;
     padding: 1px;

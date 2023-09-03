@@ -16,11 +16,14 @@
     width: auto;
     align-self: flex-start;
     justify-self: flex-start;
+    gap: 5px;
 }
 
 .btn_back > svg {
+    width: 20px;
+    height: 20px;
+}
+
+.btn_back > svg path {
     fill: var(--light);
-    width: 30px;
-    height: 30px;
-    transform: rotate(90deg);
 }

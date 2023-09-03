@@ -26,11 +26,11 @@
       "title": "As for guessing the words, if the players accidentally guess the word of the opposing team, then the point is credited to them. There are also other words on the cards that both teams do not have, and these are:",
       "text": [
         {
-          "color": "grey",
+          "color": "var(--grey-l)",
           "text": "if the players guess the word under this color, the turn will automatically end."
         },
         {
-          "color": "black",
+          "color": "var(--dark)",
           "text": "if the players guess the word under this color, the team automatically loses."
         }
       ]

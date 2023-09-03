@@ -3,13 +3,13 @@ import { useTranslation } from 'react-i18next'
 import cn from 'classnames'
 import { toast } from 'react-toastify'
 
-import { Button, MainComponent } from 'components'
+import { Button, CardTeam, CardWord, MainComponent } from 'components'
 import { useAppSelector } from 'utils/hooks'
 import { getUser } from 'store/select'
 
 import s from './styles.module.css'
 import { useNavigate } from 'react-router-dom'
-import { SvgExit, SvgPause, SvgPlay, SvgPlus, SvgReset, SvgSettings } from '../../assets/svg'
+import { SvgExit, SvgPause, SvgPlay, SvgReset, SvgSettings } from '../../assets/svg'
 
 export function RoomPage(): JSX.Element {
   const navigate = useNavigate()
@@ -45,106 +45,38 @@ export function RoomPage(): JSX.Element {
         </Button>
       </section>
       <section className={s.wrapper_middle}>
-        <section className={s.left_team}>
-          <p className={s.words}>9</p>
-          <div className={s.leader}>
-            <p className={s.title}>Лидер:</p>
-            <div className={s.user}>
-              <div className={s.img}></div>
-              <div className={s.wrapper_info_user}>
-                <p className={s.name}>Sinedviper</p>
-                <p className={s.balls_user}>120 побед</p>
-              </div>
-            </div>
-            <button className={s.button_connect}>
-              <SvgPlus />
-            </button>
-          </div>
-          <div className={s.users_wrapper}>
-            <p className={s.title}>Команда:</p>
-            <div className={s.wrapper_list}>
-              {users.map((val, key) => (
-                <div key={key} className={s.user}>
-                  <div className={s.img}></div>
-                  <div className={s.wrapper_info_user}>
-                    <p className={s.name}>{val.name}</p>
-                    <p className={s.balls_user}>120 побед</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <button className={s.button_connect}>
-              <SvgPlus />
-            </button>
-          </div>
-          <div className={s.words_wrapper}>
-            <p className={s.title}>Список загадываний:</p>
-            <div className={s.list}>
-              <p className={s.phrase}>ddddddddddddddddddddddddddddddd - 2</p>
-              <p className={s.phrase}>ddddddddd - 2</p>
-              <p className={s.phrase}>ddddddddd - 2</p>
-              <p className={s.phrase}>ddddddddd - 2</p>
-              <p className={s.phrase}>ddddddddd - 2</p>
-            </div>
-          </div>
-          <div className={s.shadow}></div>
-        </section>
+        <CardTeam team={'blue'} leader={'Sinedviper'} users={users} listAnswer={listAnswer} />
         <section className={s.wrapper_words}>
           {words.map((word, key) => (
-            <div key={key} className={s.word_wrapper}>
-              {word + word + word + word + word}
-            </div>
+            <CardWord key={key} word={word} userType={true} />
           ))}
           <div className={s.shadow_word}></div>
         </section>
-        <section className={s.right_team}>
-          <p className={s.words}>9</p>
-          <div className={s.leader}>
-            <p className={s.title}>Лидер</p>
-            <div className={s.user}>
-              <div className={s.img}></div>
-              <p className={s.name}>SinedViper</p>
-            </div>
-          </div>
-          <div className={s.users_wrapper}>
-            <p className={s.title}>Команда</p>
-            {users.map((val, key) => (
-              <div key={key} className={s.user}>
-                <div className={s.img}></div>
-                <div className={s.wrapper_info_user}>
-                  <p className={s.name}>{val.name}</p>
-                  <p className={s.balls_user}>120 побед</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className={s.words_wrapper}>
-            <p className={s.title}>Список загадываний</p>
-          </div>
-          <div className={s.shadow}></div>
-        </section>
+        <CardTeam team={'red'} leader={'Sinedviper'} users={users} listAnswer={listAnswer} />
       </section>
     </MainComponent>
   )
 }
 
-const words = [
-  'words',
-  'words',
-  'words',
-  'words',
-  'words',
-  'words',
-  'words',
-  'words',
-  'words',
-  'words',
-  'words',
-  'words',
-  'words',
-  'words',
-  'words',
-  'words',
+const listAnswer = ['words - 5', 'words - 2', 'words - 3']
+
+const words: { text: string; type: 'red' | 'blue' | 'black' | 'grey' }[] = [
+  { text: 'hew', type: 'red' },
+  { text: 'sink', type: 'blue' },
+  { text: 'grow', type: 'blue' },
+  { text: 'rise', type: 'red' },
+  { text: 'arise', type: 'blue' },
+  { text: 'fly', type: 'red' },
+  { text: 'hew', type: 'black' },
+  { text: 'sink', type: 'grey' },
+  { text: 'satisfying', type: 'red' },
+  { text: 'waitress', type: 'grey' },
+  { text: 'black desk', type: 'blue' },
+  { text: 'stolen', type: 'grey' },
+  { text: 'human', type: 'grey' },
+  { text: 'team', type: 'grey' },
+  { text: 'leader', type: 'blue' },
+  { text: 'red', type: 'red' },
 ]
 
 const users = [
