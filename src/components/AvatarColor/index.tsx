@@ -5,7 +5,7 @@ import AvatarColorProps from './types.props'
 import styles from './styles.module.css'
 
 export const AvatarColor = ({
-  color,
+  color = "red",
   size,
   nickname,
   className,

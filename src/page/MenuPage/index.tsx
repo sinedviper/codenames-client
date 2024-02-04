@@ -4,18 +4,18 @@ import { toast } from 'react-toastify'
 
 import { Button, ButtonLanguage } from 'components'
 import { useAppSelector } from 'utils/hooks'
-import { getUser } from 'store/select'
 
 import s from './styles.module.css'
 import { useNavigate } from 'react-router-dom'
+import { getAuth } from '../../store/reducers/auth'
 
 export function MenuPage(): JSX.Element {
   const { t } = useTranslation(['main', 'error'])
   const navigate = useNavigate()
 
-  const user = useAppSelector(getUser)
+  const { user } = useAppSelector(getAuth)
 
-  const userHave = user.nickname !== ''
+  const userHave = user?.username !== ''
 
   const handleClickStart = () => {
     if (!userHave) {
@@ -51,7 +51,7 @@ export function MenuPage(): JSX.Element {
       </Button>
       <Button onClick={handleClickRules}>{t('buttons.rules')}</Button>
       <Button onClick={handleClickAccount}>
-        {userHave ? user.nickname : t('buttons.account')}
+        {userHave ? user?.username : t('buttons.authorization')}
       </Button>
       <div className={s.button_menu_small}>
         <ButtonLanguage />

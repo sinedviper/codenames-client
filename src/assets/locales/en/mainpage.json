@@ -3,7 +3,8 @@
     "start": "Start",
     "connect": "Connect",
     "rules": "Rules",
-    "account": "Account"
+    "account": "Account",
+    "authorization": "Authorization"
   },
   "connect": {
     "title": "Enter the code to join the game",
@@ -11,10 +12,15 @@
     "button": "Connect"
   },
   "account": {
-    "titlenick": "Please fill in the field",
+    "titlenick": "Nickname",
     "placeholder": "Nickname",
     "titlecolor": "Choose your color",
-    "button": "Save"
+    "save": "Save",
+    "registration": "Registration",
+    "signin": "Sign-in",
+    "login": "Login",
+    "entry": "Entry",
+    "password": "Password"
   },
   "rules": {
     "btn": "Back",

@@ -2,14 +2,22 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 600px;
-    padding: 20px 10px 10px;
+    max-width: 550px;
+    padding: 20px;
     border-radius: 5px;
     border: 1px solid var(--secondary);
     background: var(--dark);
     justify-content: center;
     align-items: center;
     gap: 20px;
+}
+
+.wrap_authorization {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 50px;
+    width: 100%;
 }
 
 .btn_back {
@@ -26,4 +34,9 @@
 
 .btn_back > svg path {
     fill: var(--light);
+}
+
+.title {
+    text-align: center;
+    width: 100%;
 }
