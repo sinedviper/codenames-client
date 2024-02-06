@@ -20,7 +20,8 @@
     "signin": "Sign-in",
     "login": "Login",
     "entry": "Entry",
-    "password": "Password"
+    "password": "Password",
+    "update": "Edit"
   },
   "rules": {
     "btn": "Back",

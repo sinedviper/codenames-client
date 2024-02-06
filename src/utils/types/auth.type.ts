@@ -8,7 +8,6 @@ export type User = {
   wins: number
   lose: number
   createdAt: Date
-  date_recover: Date
   id_type: {
     id: number
     type: 'user'

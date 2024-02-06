@@ -30,6 +30,10 @@
     background: var(--green);
 }
 
+.button_green:hover {
+    background: #015942;
+}
+
 .button_pink {
     background: var(--pink);
 }

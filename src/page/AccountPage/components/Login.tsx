@@ -6,10 +6,12 @@ import { Button, Header2, Header3, Input } from 'components'
 import s from '../styles.module.css'
 import { useFormik } from 'formik'
 import { useLoginAuthMutation } from 'store/reducers/auth'
+import { useNavigate } from 'react-router-dom'
 
 export const Login = () => {
   const { t } = useTranslation(['main'])
   const [loginAuth, { isLoading }] = useLoginAuthMutation()
+  const navigate = useNavigate()
 
   const validationSchema = yup.object({
     [loginType.USERNAME]: yup.string().min(3).max(24).required(),
@@ -20,8 +22,8 @@ export const Login = () => {
     initialValues,
     validationSchema,
     onSubmit: (values) => {
-      loginAuth(values).then((val) => {
-        console.log(val)
+      loginAuth(values).then(() => {
+        navigate('/')
       })
     },
   })

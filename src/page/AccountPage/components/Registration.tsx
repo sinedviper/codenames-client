@@ -1,11 +1,13 @@
-import { AvatarColor, Button, Header2, Header3, Input, InputColor } from 'components'
-import s from '../styles.module.css'
 import { useState } from 'react'
-import { actionChangeUser } from '../../../store/slice'
-import { useAppDispatch, useAppSelector } from '../../../utils/hooks'
 import { toast } from 'react-toastify'
 import { useTranslation } from 'react-i18next'
-import { getAuth } from '../../../store/reducers/auth'
+
+import { AvatarColor, Button, Header2, Header3, Input, InputColor } from 'components'
+import { actionChangeUser } from 'store/slice'
+import { useAppDispatch, useAppSelector } from 'utils/hooks'
+import { getAuth } from 'store/reducers/auth'
+
+import s from '../styles.module.css'
 
 export const Registration = () => {
   const { t } = useTranslation(['main'])
@@ -13,10 +15,10 @@ export const Registration = () => {
 
   const { user } = useAppSelector(getAuth)
 
-  const userHave = user?.username !== ''
+  const userHave = !user?.username
 
-  const [colorChoose, setColorChoose] = useState(userHave ? user?.color : '#ffffff')
-  const [inputNickname, setIInputNickname] = useState(userHave ? user?.username : '')
+  const [colorChoose, setColorChoose] = useState(!userHave ? user?.color : '#ffffff')
+  const [inputNickname, setIInputNickname] = useState(!userHave ? user?.username : '')
 
   const handleChangeInput = (e) => {
     setIInputNickname(e.target.value)
