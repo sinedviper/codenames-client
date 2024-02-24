@@ -1,11 +1,10 @@
-import React from 'react'
 import { useLocation, useOutlet } from 'react-router-dom'
 import { SwitchTransition, CSSTransition } from 'react-transition-group'
 
-import { MainComponent, BlobAnimation } from 'components'
+import { BlobAnimation, OrbitAnimation } from 'components'
+import { routes } from 'application/routes'
 
 import s from './styles.module.css'
-import { routes } from '../../App'
 
 export function PageWrapper(): JSX.Element {
   const { pathname } = useLocation()
@@ -13,32 +12,36 @@ export function PageWrapper(): JSX.Element {
 
   const { nodeRef } = routes.find(({ path }) => path === pathname) ?? {}
 
+  const typeColorBlob1 = () => {
+    return { first: '--primary', second: '--primary' }
+  }
+
+  const typeColorBlob2 = () => {
+    return { first: '--appear', second: '--appear' }
+  }
+
   return (
-    <MainComponent center={true}>
+    <div className={s.wrapper}>
       <SwitchTransition>
         <CSSTransition
           key={pathname}
           nodeRef={nodeRef}
-          timeout={300}
+          timeout={400}
           classNames={'page'}
           unmountOnExit
         >
           {() => (
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            <div ref={nodeRef} className='page'>
+            <main ref={nodeRef} className='main'>
               {currentOutlet}
-            </div>
+            </main>
           )}
         </CSSTransition>
       </SwitchTransition>
-      {!pathname.includes('room') && (
-        <BlobAnimation
-          id={'blob_1'}
-          className={s.blob_1}
-          colorBlob={{ first: '--secondary', second: '--blue' }}
-        />
-      )}
-    </MainComponent>
+      <BlobAnimation id={'blob_1'} className={s.blob_1} colorBlob={typeColorBlob1()} />
+      <BlobAnimation id={'blob_2'} className={s.blob_2} colorBlob={typeColorBlob2()} />
+      <OrbitAnimation className={s.orbit_1} />
+      <OrbitAnimation className={s.orbit_2} />
+      <OrbitAnimation className={s.orbit_3} />
+    </div>
   )
 }

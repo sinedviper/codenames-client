@@ -1,0 +1,16 @@
+.wrapper_login {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 325px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.btn_back {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

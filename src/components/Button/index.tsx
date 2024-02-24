@@ -1,48 +1,44 @@
-import React, { useState } from 'react'
 import cn from 'classnames'
 
-import ButtonsProps from './types.props'
+import { TextParagraph } from '../TextParagraph'
+import Props from './types.props'
 import s from './styles.module.css'
+import { SoundClick } from '../../assets/sounds'
 
 export const Button = ({
   className,
-  color,
-  children,
+  variant,
   disabled,
-  onMouseUp,
-  onMouseDown,
+  text,
+  icon,
+  type = 'button',
+  children,
   ...props
-}: ButtonsProps): JSX.Element => {
-  const [click, setClick] = useState(false)
-
-  const handleClickDown = () => {
-    setClick(true)
-    return onMouseDown
-  }
-
-  const handleClickUp = () => {
-    setClick(false)
-    return onMouseUp
+}: Props): JSX.Element => {
+  const handleClick = () => {
+    const audio = new Audio(SoundClick)
+    audio.play()
   }
 
   return (
     <button
       className={cn(className, s.button, {
-        [s.button_click]: click,
-        [s.button_orange]: color === 'orange',
-        [s.button_pink]: color === 'pink',
-        [s.button_purple]: color === 'purple',
-        [s.button_blue]: color === 'blue',
-        [s.button_green]: color === 'green',
-        [s.button_yellow]: color === 'yellow',
-        [s.button_none]: color === 'none',
+        [s.btn_gradient]: variant === 'gradient',
+        [s.btn_none]: variant === 'none',
       })}
+      type={type}
       disabled={disabled}
-      onMouseDown={handleClickDown}
-      onMouseUp={handleClickUp}
+      onMouseDown={handleClick}
+      onTouchStart={handleClick}
       {...props}
     >
       {children}
+      {text && (
+        <TextParagraph type={'p2'} className={s.text}>
+          {text}
+        </TextParagraph>
+      )}
+      {icon && <div className={s.svg}>{icon}</div>}
     </button>
   )
 }

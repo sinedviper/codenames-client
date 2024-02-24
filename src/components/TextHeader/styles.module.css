@@ -1,0 +1,56 @@
+.header1 {
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 33px;
+    text-align: center;
+}
+
+.header2 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29px;
+    width: 100%;
+    text-align: center;
+}
+
+.header3 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width: 1023px) {
+    .header1 {
+        font-size: 24px;
+        line-height: 29px;
+    }
+
+    .header2 {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .header3 {
+        font-size: 16px;
+        line-height: 19px;
+    }
+}
+
+@media screen and (max-width: 569px) {
+    .header1 {
+        font-size: 22px;
+        line-height: 26px;
+    }
+
+    .header2 {
+        font-size: 18px;
+        line-height: 21px;
+    }
+
+    .header3 {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}

@@ -9,12 +9,16 @@ type initialType = {
   status: 'idle' | 'fulfilled' | 'rejected' | 'pending'
   user: null | User
   token: string | null
+  sound: boolean
+  animation: boolean
 }
 
 const initialState: initialType = {
   user: null,
   token: null,
   status: 'idle',
+  animation: true,
+  sound: true,
 }
 
 export const authReducer = createSlice({
@@ -22,6 +26,12 @@ export const authReducer = createSlice({
   initialState,
   reducers: {
     logout: () => initialState,
+    setSound: (state: initialType, { payload }: PayloadAction<boolean>) => {
+      state.sound = payload
+    },
+    setAnimation: (state: initialType, { payload }: PayloadAction<boolean>) => {
+      state.animation = payload
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -46,4 +56,4 @@ export const authReducer = createSlice({
   },
 })
 
-export const { logout } = authReducer.actions
+export const { logout, setSound, setAnimation } = authReducer.actions

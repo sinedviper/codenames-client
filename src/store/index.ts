@@ -11,13 +11,10 @@ import {
   REGISTER,
 } from 'redux-persist'
 
-import { themeReducer, userReducer } from './slice'
 import { authReducer } from './reducers/auth'
 import { api } from './services/api.ts'
 
 const reducer = combineReducers({
-  theme: themeReducer,
-  user: userReducer,
   auth: authReducer.reducer,
   [api.reducerPath]: api.reducer,
 })
@@ -25,6 +22,7 @@ const reducer = combineReducers({
 const persistConfig = {
   key: 'root',
   storage,
+  whitelist: ['auth'],
 }
 
 const persistedReducer = persistReducer(persistConfig, reducer)

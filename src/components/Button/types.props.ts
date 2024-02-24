@@ -1,8 +1,11 @@
 import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react'
 
-export default interface ButtonsProps
+export default interface Props
   extends DetailedHTMLProps<HTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-  children: ReactNode
-  color?: 'orange' | 'pink' | 'purple' | 'blue' | 'green' | 'yellow' | 'none'
+  variant?: 'none' | 'gradient'
   disabled?: boolean
+  text?: string
+  icon?: ReactNode
+  children?: ReactNode
+  type?: 'button' | 'submit'
 }

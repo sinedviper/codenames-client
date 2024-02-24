@@ -1,0 +1,89 @@
+@import url("./font/stylesheet.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "SF Pro Display", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+:root {
+  --dark: #000;
+  --light: #fff;
+
+  --grey-1: #AEAEAE;
+  --grey-2: #D7D7D7;
+
+  --primary: #58F3A8;
+  --secondary: #2B53EB;
+  --danger: #E35B63;
+  --warning: #F5C651;
+  --appear: #8C70F7;
+  --accent: #EB2BE6;
+
+  --transition: all 0.3s ease-in-out;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  transition: var(--transition);
+  background: var(--dark);
+  color: var(--light)
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.main {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-enter {
+  opacity: 0;
+  transform: scale(0.9) translateY(-100px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: scale(0.9) translateY(100px);
+  transition: opacity 300ms, transform 300ms;
+}
