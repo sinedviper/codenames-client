@@ -13,10 +13,16 @@ export function PageWrapper(): JSX.Element {
   const { nodeRef } = routes.find(({ path }) => path === pathname) ?? {}
 
   const typeColorBlob1 = () => {
+    if (pathname.includes('login')) {
+      return { first: '--appear', second: '--appear' }
+    }
     return { first: '--primary', second: '--primary' }
   }
 
   const typeColorBlob2 = () => {
+    if (pathname.includes('login')) {
+      return { first: '--warning', second: '--warning' }
+    }
     return { first: '--appear', second: '--appear' }
   }
 

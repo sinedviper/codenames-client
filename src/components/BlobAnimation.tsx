@@ -17,8 +17,14 @@ export const BlobAnimation = ({ className, colorBlob, id }: Props): JSX.Element 
       >
         <defs>
           <linearGradient id={id} x1='0%' y1='0%' x2='0%' y2='100%'>
-            <stop offset='0%' style={{ stopColor: `var(${colorBlob.first})` }}></stop>
-            <stop offset='100%' style={{ stopColor: `var(${colorBlob.second})` }}></stop>
+            <stop
+              offset='0%'
+              style={{ stopColor: `var(${colorBlob.first})`, transition: 'var(--transition)' }}
+            ></stop>
+            <stop
+              offset='100%'
+              style={{ stopColor: `var(${colorBlob.second})`, transition: 'var(--transition)' }}
+            ></stop>
           </linearGradient>
         </defs>
         <path fill={`url(#${id})`}>

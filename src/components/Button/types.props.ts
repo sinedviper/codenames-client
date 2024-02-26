@@ -5,7 +5,7 @@ export default interface Props
   variant?: 'none' | 'gradient'
   disabled?: boolean
   text?: string
-  icon?: ReactNode
+  load?: boolean
   children?: ReactNode
   type?: 'button' | 'submit'
 }

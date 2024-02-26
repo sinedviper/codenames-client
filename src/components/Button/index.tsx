@@ -4,13 +4,14 @@ import { TextParagraph } from '../TextParagraph'
 import Props from './types.props'
 import s from './styles.module.css'
 import { SoundClick } from '../../assets/sounds'
+import { SvgSpinner } from '../../assets/svg'
 
 export const Button = ({
   className,
   variant,
   disabled,
   text,
-  icon,
+  load,
   type = 'button',
   children,
   ...props
@@ -38,7 +39,11 @@ export const Button = ({
           {text}
         </TextParagraph>
       )}
-      {icon && <div className={s.svg}>{icon}</div>}
+      {load && (
+        <div className={s.svg}>
+          <SvgSpinner />
+        </div>
+      )}
     </button>
   )
 }

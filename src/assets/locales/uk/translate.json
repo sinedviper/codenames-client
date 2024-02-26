@@ -3,5 +3,10 @@
   "connecttogame": "Підключитися до гри",
   "rules": "Правила",
   "authorization": "Авторизація",
-  "footer": "Codenames. Створено Денисом Реп'євом"
+  "footer": "Codenames. Створено Денисом Реп'євом",
+  "signin": "Увійти",
+  "login": "Логін",
+  "password": "Пароль",
+  "registration": "Реєстрація",
+  "enter": "Увійти"
 }

@@ -6,6 +6,7 @@
     filter: blur(50px);
     bottom: -450px;
     left: -450px;
+    transition: var(--transition);
 }
 
 .orbit_1 {

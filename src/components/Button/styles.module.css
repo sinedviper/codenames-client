@@ -67,8 +67,6 @@
     transition: var(--transition);
 }
 
-
-
 .btn_gradient:hover {
     box-shadow: none;
 }
@@ -129,10 +127,6 @@
     box-shadow: none;
     border: 1px solid var(--grey-1);
     background: var(--grey-1);
-}
-
-.btn_gradient:active:after {
-    opacity: 0;
 }
 
 .btn_none:disabled {

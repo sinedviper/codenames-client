@@ -3,5 +3,10 @@
   "connecttogame": "Connect to game",
   "rules": "Rules",
   "authorization": "Authorization",
-  "footer": "Codenames. Created by Denis Repiev"
+  "footer": "Codenames. Created by Denis Repiev",
+  "signin": "Sign-in",
+  "login": "Login",
+  "password": "Password",
+  "registration": "Registration",
+  "enter": "Enter"
 }
