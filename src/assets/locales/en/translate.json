@@ -8,5 +8,10 @@
   "login": "Login",
   "password": "Password",
   "registration": "Registration",
-  "enter": "Enter"
+  "enter": "Enter",
+  "profile": "Profile",
+  "signup": "Sign up",
+  "color": "Color",
+  "birthday": "Birthday",
+  "passwordcor": "Repeat password"
 }

@@ -22,6 +22,14 @@ export const Home = (): JSX.Element => {
     setShowModal(false)
   }
 
+  const handleProfile = () => {
+    if (token) {
+      navigate('/profile')
+    } else {
+      navigate('/login')
+    }
+  }
+
   return (
     <div className={s.wrapper_main}>
       <TextHeader className={s.title}>Codenames</TextHeader>
@@ -29,7 +37,7 @@ export const Home = (): JSX.Element => {
         <Button disabled={!token} text={t('creategame')} onClick={() => navigate('/create')} />
         <Button disabled={!token} text={t('connecttogame')} onClick={() => navigate('/connect')} />
         <Button text={t('rules')} onClick={() => navigate('/rules')} />
-        <Button text={t('authorization')} onClick={() => navigate('/login')} />
+        <Button text={t(token ? 'profile' : 'authorization')} onClick={handleProfile} />
       </div>
       <Button variant={'none'} onClick={() => setShowModal(!showModal)}>
         <div className={s.wrap_globus}>

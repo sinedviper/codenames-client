@@ -1,5 +1,5 @@
 import { api } from 'store/services/api'
-import { resLogin, responseType, User } from 'utils/types'
+import { resLogin, TResponse, User } from 'utils/types'
 
 export interface LoginUser {
   username: string
@@ -25,7 +25,7 @@ export const authApi = api.injectEndpoints({
         method: 'POST',
         body: credentials,
       }),
-      transformErrorResponse: (res: responseType<resLogin>) => {
+      transformErrorResponse: (res: TResponse<resLogin>) => {
         if (
           res.status === 400 ||
           res.status === 401 ||
@@ -37,7 +37,7 @@ export const authApi = api.injectEndpoints({
           return res.data.message
         }
       },
-      transformResponse: (res: responseType<resLogin>): resLogin => {
+      transformResponse: (res: TResponse<resLogin>): resLogin => {
         return res.data as resLogin
       },
     }),

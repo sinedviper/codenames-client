@@ -1,11 +1,58 @@
 import { createRef } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
-import { PageWrapper } from 'components'
-import { Home, Login } from 'page'
+
+import { Home, Login, Registration } from 'page'
+import { PageWrapper, WrapAuth } from 'components'
 
 export const routes = [
   { path: '/', element: <Home />, nodeRef: createRef<HTMLDivElement>() },
-  { path: '/login', element: <Login />, nodeRef: createRef<HTMLDivElement>() },
+  {
+    path: '/login',
+    element: (
+      <WrapAuth checkToken={true}>
+        <Login />
+      </WrapAuth>
+    ),
+    nodeRef: createRef<HTMLDivElement>(),
+  },
+  { path: '/registration', element: <Registration />, nodeRef: createRef<HTMLDivElement>() },
+  {
+    path: '/profile',
+    element: (
+      <WrapAuth>
+        <div />
+      </WrapAuth>
+    ),
+    nodeRef: createRef<HTMLDivElement>(),
+  },
+  { path: '/rules', element: <div />, nodeRef: createRef<HTMLDivElement>() },
+  {
+    path: '/connect',
+    element: (
+      <WrapAuth>
+        <div />
+      </WrapAuth>
+    ),
+    nodeRef: createRef<HTMLDivElement>(),
+  },
+  {
+    path: '/create',
+    element: (
+      <WrapAuth>
+        <div />
+      </WrapAuth>
+    ),
+    nodeRef: createRef<HTMLDivElement>(),
+  },
+  {
+    path: '/game',
+    element: (
+      <WrapAuth>
+        <div />
+      </WrapAuth>
+    ),
+    nodeRef: createRef<HTMLDivElement>(),
+  },
 ]
 
 const getRoute = (routes) =>

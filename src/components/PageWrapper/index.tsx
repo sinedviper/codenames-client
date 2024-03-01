@@ -16,12 +16,18 @@ export function PageWrapper(): JSX.Element {
     if (pathname.includes('login')) {
       return { first: '--appear', second: '--appear' }
     }
+    if (pathname.includes('registration')) {
+      return { first: '--appear', second: '--appear' }
+    }
     return { first: '--primary', second: '--primary' }
   }
 
   const typeColorBlob2 = () => {
     if (pathname.includes('login')) {
       return { first: '--warning', second: '--warning' }
+    }
+    if (pathname.includes('registration')) {
+      return { first: '--accent', second: '--accent' }
     }
     return { first: '--appear', second: '--appear' }
   }
