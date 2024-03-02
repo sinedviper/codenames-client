@@ -1,16 +1,21 @@
 import { DetailedHTMLProps, HTMLAttributes, useState } from 'react'
 import cn from 'classnames'
 
-import { SvgEye } from 'assets/svg'
+import { SvgEye, SvgPaintcan } from 'assets/svg'
 import { Button } from 'components'
 
 import s from './styles.module.css'
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement> {
-  type?: 'text' | 'password'
+  type?: 'text' | 'password' | 'color'
+  maxLength?: number
+  minLength?: number
+  disabled?: boolean
+  clickBtn?: () => void
+  value?: string
 }
 
-export const Input = ({ className, type, ...props }: Props): JSX.Element => {
+export const Input = ({ className, clickBtn, value, type, ...props }: Props): JSX.Element => {
   const [password, setPassword] = useState(false)
 
   return (
@@ -20,6 +25,7 @@ export const Input = ({ className, type, ...props }: Props): JSX.Element => {
         className={cn(className, s.input, {
           [s.input_pass]: type == 'password',
         })}
+        value={value}
         {...props}
       />
       {type == 'password' ? (
@@ -32,6 +38,10 @@ export const Input = ({ className, type, ...props }: Props): JSX.Element => {
           ) : (
             <SvgEye />
           )}
+        </Button>
+      ) : type == 'color' ? (
+        <Button variant={'none'} onClick={() => clickBtn && clickBtn()} className={s.wrap_svg}>
+          <SvgPaintcan />
         </Button>
       ) : null}
     </div>

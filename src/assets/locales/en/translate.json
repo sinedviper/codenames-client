@@ -13,5 +13,6 @@
   "signup": "Sign up",
   "color": "Color",
   "birthday": "Birthday",
-  "passwordcor": "Repeat password"
+  "passwordcor": "Repeat password",
+  "language": "Language"
 }

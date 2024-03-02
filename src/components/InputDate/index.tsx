@@ -1,5 +1,5 @@
 import DatePicker from 'react-date-picker'
-import { DetailedHTMLProps, HTMLAttributes, useState } from 'react'
+import { DetailedHTMLProps, HTMLAttributes } from 'react'
 import cn from 'classnames'
 
 import { SvgCalendar, SvgClose } from 'assets/svg'
@@ -27,15 +27,13 @@ export const InputDate = ({
     <DatePicker
       id={id}
       name={name}
-      className={cn(className, s.wrap_input)}
-      calendarClassName={s.wrap_calendar}
-      tileClassName={s.tile_wrap}
+      className={cn(className)}
       onChange={(value) => onChange && onChange({ target: { id, name, value: `${value ?? ''}` } })}
       value={value}
-      calendarIcon={<SvgCalendar className={cn(s.svg_btn)} />}
+      calendarIcon={<SvgCalendar />}
       clearIcon={
         <SvgClose
-          className={cn(s.svg_btn, {
+          className={cn({
             [s.svg_none]: value?.trim() === '',
           })}
         />

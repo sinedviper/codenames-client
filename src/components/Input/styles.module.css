@@ -13,6 +13,11 @@
     transition: var(--transition);
 }
 
+.input[type="color"] {
+    min-height: 50px;
+    padding: 10px 50px 10px 10px;
+}
+
 .input::placeholder {
     color: var(--grey-1);
     font-family: SF Pro Display, sans-serif;

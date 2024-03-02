@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { toast } from 'react-toastify'
 import { jwtDecode } from 'jwt-decode'
 
-import { loginAuth } from './authApi'
+import { loginAuth, registrationAuth } from './authApi'
 import { resLogin, User } from 'utils/types'
 
 type initialType = {
@@ -35,25 +35,28 @@ export const authReducer = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addMatcher(loginAuth.matchPending, (state: initialType) => {
-        state.status = 'pending'
-      })
-      .addMatcher(
-        loginAuth.matchFulfilled,
-        (state: initialType, { payload }: PayloadAction<resLogin>) => {
-          state.user = jwtDecode(payload.accessToken).sub as unknown as User
-          state.token = payload?.accessToken
-          state.status = 'fulfilled'
-        },
-      )
-      .addMatcher(
-        loginAuth.matchRejected,
-        (state: initialType, { payload }: PayloadAction<unknown>) => {
-          state.status = 'rejected'
-          toast.error(payload as string)
-        },
-      )
+      .addMatcher(loginAuth.matchPending, authPending)
+      .addMatcher(loginAuth.matchFulfilled, authFulfilled)
+      .addMatcher(loginAuth.matchRejected, authRejected)
+      .addMatcher(registrationAuth.matchPending, authPending)
+      .addMatcher(registrationAuth.matchFulfilled, authFulfilled)
+      .addMatcher(registrationAuth.matchRejected, authRejected)
   },
 })
+
+const authPending = (state: initialType) => {
+  state.status = 'pending'
+}
+
+const authFulfilled = (state: initialType, { payload }: PayloadAction<resLogin>) => {
+  state.user = jwtDecode(payload.accessToken).sub as unknown as User
+  state.token = payload?.accessToken
+  state.status = 'fulfilled'
+}
+
+const authRejected = (state: initialType, { payload }: PayloadAction<unknown>) => {
+  state.status = 'rejected'
+  toast.error(payload as string)
+}
 
 export const { logout, setSound, setAnimation } = authReducer.actions

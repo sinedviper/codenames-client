@@ -6,7 +6,9 @@ import close from './close.svg?react'
 import arrow from './arrow.svg?react'
 import eye from './eye.svg?react'
 import calendar from './calendar.svg?react'
+import paintcan from './paintcan.svg?react'
 
+export const SvgPaintcan: FC<SVGProps<SVGElement>> = paintcan
 export const SvgSpinner: FC<SVGProps<SVGElement>> = spinner
 export const SvgGlobus: FC<SVGProps<SVGElement>> = globus
 export const SvgClose: FC<SVGProps<SVGElement>> = close

@@ -1,0 +1,32 @@
+.wrap_color {
+    border: 1px solid var(--light) !important;
+    background: var(--dark) !important;
+}
+
+.wrap_color > div {
+    display: none;
+}
+
+.wrapper_color {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.color_comp {
+    position: absolute;
+    z-index: 10;
+    left: calc(50% - 94px);
+    bottom: -100px;
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+}
+
+.color_comp_active {
+    transform: translateY(0px);
+    opacity: 1;
+    pointer-events: auto;
+    transition: var(--transition);
+}

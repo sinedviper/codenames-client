@@ -9,5 +9,5 @@ export type TResponse<T> =
     }
   | {
       data: { message: string }
-      status: 400 | 401 | 404 | 406 | 417 | 500
+      status: 400 | 401 | 404 | 406 | 417 | 500 | 409
     }

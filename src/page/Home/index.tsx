@@ -48,7 +48,7 @@ export const Home = (): JSX.Element => {
         </TextParagraph>
       </Button>
       <WrapModal show={showModal} className={s.wrap_modal}>
-        <TextHeader type={'h2'}>Language</TextHeader>
+        <TextHeader type={'h2'}>{t('language')}</TextHeader>
         <Button variant={'none'} className={s.btn_close} onClick={() => setShowModal(false)}>
           <div className={s.svg_close}>
             <SvgClose />
