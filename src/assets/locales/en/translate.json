@@ -14,5 +14,16 @@
   "color": "Color",
   "birthday": "Birthday",
   "passwordcor": "Repeat password",
-  "language": "Language"
+  "language": "Language",
+  "code": "Code",
+  "connect": "Connect",
+  "rules_1": "This is an association game where two teams compete. Each of them has one leader. Teams can have from 2 to 5 players. The main goal is to be the first to guess all the words hidden under the team's color.",
+  "rules_2": "The leader writes a word-association to the words that are on the cards under the team's color, and writes the number of words that are associated with this word, for example: 'elephant - 2'. Team players must guess these words.",
+  "rules_3": "When the game begins, the first move is given to the team that has the most words. Those who make the first move are given more time to write the association. After writing the association, time is given (which is set when creating the game) to guess the words. Then associations are written in a shorter time (which can also be set in the settings when creating the game).",
+  "rules_4": "Regarding word guessing itself, if the players accidentally guess the word of the opposing team, then the point is credited to them. There are also other words on the cards that both teams do not have, and these are:",
+  "rules_5": "if the players guess the word under this color, the turn will automatically end.",
+  "rules_6": "if the players guess the word under this color, the team automatically loses.",
+  "rules_7": "What a leader should NOT do:\n- Write the word itself in associations\n- Write a translation of a word (into another language)\n- Say your team's words out loud\n- Prompt players when they guess a word\n- You cannot explain your word-association more broadly",
+  "rules_8": "Finally, it is important to keep in mind that the main goal of the game is not only to win, but also to have a good time with friends or family. So, use the game as an opportunity for communication and fun, and don't forget to enjoy the process!",
+  "exitprofile": "Exit profile"
 }

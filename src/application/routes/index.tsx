@@ -1,7 +1,7 @@
 import { createRef } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 
-import { Home, Login, Registration } from 'page'
+import { Connect, Home, Login, Profile, Registration, Rules } from 'page'
 import { PageWrapper, WrapAuth } from 'components'
 
 export const routes = [
@@ -20,17 +20,17 @@ export const routes = [
     path: '/profile',
     element: (
       <WrapAuth>
-        <div />
+        <Profile />
       </WrapAuth>
     ),
     nodeRef: createRef<HTMLDivElement>(),
   },
-  { path: '/rules', element: <div />, nodeRef: createRef<HTMLDivElement>() },
+  { path: '/rules', element: <Rules />, nodeRef: createRef<HTMLDivElement>() },
   {
     path: '/connect',
     element: (
       <WrapAuth>
-        <div />
+        <Connect />
       </WrapAuth>
     ),
     nodeRef: createRef<HTMLDivElement>(),

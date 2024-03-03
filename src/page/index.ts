@@ -1,3 +1,6 @@
 export * from './Home'
 export * from './Login'
 export * from './Registration'
+export * from './Connect'
+export * from './Rules'
+export * from './Profile'

@@ -19,6 +19,18 @@ export function PageWrapper(): JSX.Element {
     if (pathname.includes('registration')) {
       return { first: '--appear', second: '--appear' }
     }
+    if (pathname.includes('connect')) {
+      return { first: '--danger', second: '--danger' }
+    }
+    if (pathname.includes('rules')) {
+      return { first: '--primary', second: '--primary' }
+    }
+    if (pathname.includes('create')) {
+      return { first: '--primary', second: '--primary' }
+    }
+    if (pathname.includes('profile')) {
+      return { first: '--danger', second: '--danger' }
+    }
     return { first: '--primary', second: '--primary' }
   }
 
@@ -28,6 +40,18 @@ export function PageWrapper(): JSX.Element {
     }
     if (pathname.includes('registration')) {
       return { first: '--accent', second: '--accent' }
+    }
+    if (pathname.includes('connect')) {
+      return { first: '--warning', second: '--warning' }
+    }
+    if (pathname.includes('rules')) {
+      return { first: '--secondary', second: '--secondary' }
+    }
+    if (pathname.includes('create')) {
+      return { first: '--light', second: '--light' }
+    }
+    if (pathname.includes('profile')) {
+      return { first: '--light', second: '--light' }
     }
     return { first: '--appear', second: '--appear' }
   }
