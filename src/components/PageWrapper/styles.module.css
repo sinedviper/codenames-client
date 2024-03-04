@@ -16,7 +16,8 @@
     width: 1200px;
     height: 1200px;
     background: transparent;
-    animation: infinite 30s 0ms linear orbit;
+    animation: infinite 60s 0ms linear orbit;
+    z-index: -1;
 }
 
 .orbit_2 {
@@ -26,7 +27,8 @@
     width: 1200px;
     height: 1200px;
     background: transparent;
-    animation: infinite 30s 0ms linear orbit;
+    animation: infinite 60s 0ms linear orbit;
+    z-index: -1;
 }
 
 .orbit_3 {
@@ -36,7 +38,8 @@
     width: 1400px;
     height: 1400px;
     background: transparent;
-    animation: infinite 30s 0ms linear orbit-rev;
+    animation: infinite 60s 0ms linear orbit-rev;
+    z-index: -1;
 }
 
 @keyframes orbit {
@@ -44,7 +47,7 @@
         transform: rotate(0);
     }
     100% {
-        transform: rotate(180deg);
+        transform: rotate(360deg);
     }
 }
 
@@ -53,7 +56,7 @@
         transform: rotate(0);
     }
     100% {
-        transform: rotate(-180deg);
+        transform: rotate(-360deg);
     }
 }
 

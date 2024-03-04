@@ -25,5 +25,10 @@
   "rules_6": "if the players guess the word under this color, the team automatically loses.",
   "rules_7": "What a leader should NOT do:\n- Write the word itself in associations\n- Write a translation of a word (into another language)\n- Say your team's words out loud\n- Prompt players when they guess a word\n- You cannot explain your word-association more broadly",
   "rules_8": "Finally, it is important to keep in mind that the main goal of the game is not only to win, but also to have a good time with friends or family. So, use the game as an opportunity for communication and fun, and don't forget to enjoy the process!",
-  "exitprofile": "Exit profile"
+  "exitprofile": "Exit profile",
+  "settings": "Settings",
+  "save": "Save",
+  "downloaderror": "Download error",
+  "ratinwl": "Ration  W/L",
+  "points": "Points"
 }

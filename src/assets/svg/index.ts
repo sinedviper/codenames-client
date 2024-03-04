@@ -7,7 +7,9 @@ import arrow from './arrow.svg?react'
 import eye from './eye.svg?react'
 import calendar from './calendar.svg?react'
 import paintcan from './paintcan.svg?react'
+import warn from './warn.svg?react'
 
+export const SvgWarn: FC<SVGProps<SVGElement>> = warn
 export const SvgPaintcan: FC<SVGProps<SVGElement>> = paintcan
 export const SvgSpinner: FC<SVGProps<SVGElement>> = spinner
 export const SvgGlobus: FC<SVGProps<SVGElement>> = globus

@@ -31,6 +31,8 @@ li {
   --appear: #8C70F7;
   --accent: #EB2BE6;
 
+  --appear-5: rgba(140, 112, 247, 0.5);
+
   --transition: all 0.3s ease-in-out;
 }
 
