@@ -56,6 +56,8 @@ export function PageWrapper(): JSX.Element {
     return { first: '--appear', second: '--appear' }
   }
 
+  //console.log(navigator.geolocation.getCurrentPosition(console.log))
+
   return (
     <div className={s.wrapper}>
       <SwitchTransition>

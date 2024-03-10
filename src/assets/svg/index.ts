@@ -8,7 +8,11 @@ import eye from './eye.svg?react'
 import calendar from './calendar.svg?react'
 import paintcan from './paintcan.svg?react'
 import warn from './warn.svg?react'
+import cloud from './cloud.svg?react'
+import smile from './smile.svg?react'
 
+export const SvgSmile: FC<SVGProps<SVGElement>> = smile
+export const SvgCloud: FC<SVGProps<SVGElement>> = cloud
 export const SvgWarn: FC<SVGProps<SVGElement>> = warn
 export const SvgPaintcan: FC<SVGProps<SVGElement>> = paintcan
 export const SvgSpinner: FC<SVGProps<SVGElement>> = spinner

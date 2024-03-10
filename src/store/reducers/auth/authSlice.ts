@@ -2,12 +2,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { toast } from 'react-toastify'
 import { jwtDecode } from 'jwt-decode'
 
-import { loginAuth, registrationAuth } from './authApi'
-import { resLogin, User } from 'utils/types'
+import { loginAuth, registrationAuth, updateAuth, uploadImage } from './authApi'
+import { IResLogin, TUser } from 'utils/types'
 
 type initialType = {
   status: 'idle' | 'fulfilled' | 'rejected' | 'pending'
-  user: null | User
+  user: null | TUser
   token: string | null
   sound: boolean
   animation: boolean
@@ -41,6 +41,12 @@ export const authReducer = createSlice({
       .addMatcher(registrationAuth.matchPending, authPending)
       .addMatcher(registrationAuth.matchFulfilled, authFulfilled)
       .addMatcher(registrationAuth.matchRejected, authRejected)
+      .addMatcher(updateAuth.matchPending, authPending)
+      .addMatcher(updateAuth.matchFulfilled, authFulfilled)
+      .addMatcher(updateAuth.matchRejected, authRejected)
+      .addMatcher(uploadImage.matchPending, authPending)
+      .addMatcher(uploadImage.matchFulfilled, authFulfilled)
+      .addMatcher(uploadImage.matchRejected, authRejected)
   },
 })
 
@@ -48,8 +54,8 @@ const authPending = (state: initialType) => {
   state.status = 'pending'
 }
 
-const authFulfilled = (state: initialType, { payload }: PayloadAction<resLogin>) => {
-  state.user = jwtDecode(payload.accessToken).sub as unknown as User
+const authFulfilled = (state: initialType, { payload }: PayloadAction<IResLogin>) => {
+  state.user = jwtDecode(payload.accessToken).sub as unknown as TUser
   state.token = payload?.accessToken
   state.status = 'fulfilled'
 }

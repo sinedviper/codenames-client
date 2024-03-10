@@ -1,1 +1,2 @@
-export * from './language.type'
+export * from './recources.ts'
+export * from './colors.ts'

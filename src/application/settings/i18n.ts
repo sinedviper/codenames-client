@@ -3,9 +3,9 @@ import { initReactI18next } from 'react-i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 
 import { resources } from 'utils/contastants'
-import { LanguageType } from 'utils/types'
+import { TLanguage } from 'utils/types'
 
-function languageDefault(): LanguageType {
+function languageDefault(): TLanguage {
   const languageSystem = navigator.language.split('').slice(0, 2).join('')
 
   switch (languageSystem) {

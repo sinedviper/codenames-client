@@ -12,14 +12,14 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLImageElement>, HTML
   alt?: string
 }
 
-export const Img = ({ src, alt = 'picture', ...props }: Props) => {
+export const Img = ({ src, alt = 'picture', className, ...props }: Props) => {
   const { t } = useTranslation('translate')
 
   const [load, setLoad] = useState(true)
   const [error, setError] = useState(false)
 
   return (
-    <div className={s.wrap_img}>
+    <div className={cn(className, s.wrap_img)}>
       <img
         className={s.img}
         src={src}

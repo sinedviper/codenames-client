@@ -1,7 +1,7 @@
-export type LanguageType = 'en' | 'uk'
+export type TLanguage = 'en' | 'uk'
 export type TLanguageSelect = 'ENG' | 'УКР'
 
 export interface ILangSelect {
-  lang: LanguageType
+  lang: TLanguage
   label: TLanguageSelect
 }

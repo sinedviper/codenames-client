@@ -8,7 +8,7 @@ const baseQuery = fetchBaseQuery({
     // By default, if we have a token in the store, let's use that for authenticated requests
     const token = (getState() as RootState).auth.token
     if (token) {
-      headers.set('Autorization', `Bearer ${token}`)
+      headers.set('Authorization', `Bearer ${token}`)
     }
     return headers
   },
