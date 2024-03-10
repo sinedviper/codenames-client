@@ -1,0 +1,18 @@
+.wrap_inputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+}
+
+.text_bottom {
+    width: 100%; /* Ширина контейнера */
+    display: -webkit-box; /* Устанавливаем использование flexbox */
+    -webkit-line-clamp: 2; /* Ограничение на количество строк */
+    -webkit-box-orient: vertical; /* Ориентация flexbox по вертикали */
+    overflow: hidden; /* Скрытие содержимого, выходящего за пределы контейнера */
+    text-overflow: ellipsis; /* Отображение многоточия для обрезанного текста */
+    text-align: left;
+    padding: 0 5px;
+    color: var(--danger);
+}

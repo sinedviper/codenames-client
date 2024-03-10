@@ -14,6 +14,7 @@ interface Props
   name?: string
   id?: string
   onChange?: (value: { target: { id?: string; name?: string; value: string | null } }) => void
+  error?: string
 }
 
 export const InputColor = ({
@@ -23,6 +24,8 @@ export const InputColor = ({
   id,
   name,
   value,
+  error,
+  onBlur,
   ...props
 }: Props): JSX.Element => {
   const [color, setColor] = useState(false)
@@ -37,6 +40,8 @@ export const InputColor = ({
         disabled={true}
         value={value}
         clickBtn={() => setColor(!color)}
+        error={error}
+        onBlur={onBlur}
         {...props}
       />
       <div

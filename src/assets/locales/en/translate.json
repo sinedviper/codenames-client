@@ -30,5 +30,11 @@
   "save": "Save",
   "downloaderror": "Download error",
   "ratinwl": "Ration  W/L",
-  "points": "Points"
+  "points": "Points",
+  "requiredfields": "Required field",
+  "min3sim": "Minimum number of 3 characters",
+  "min6sim": "Minimum number of 6 characters",
+  "max20sim": "Maximum number of 20 characters",
+  "logvalidation": "The login must contain only Latin letters and at least one number",
+  "passvalidation": "The password must contain only Latin letters and at least one number and one uppercase letter"
 }

@@ -8,6 +8,7 @@ export const TextParagraph = ({ className, children, type, ...props }: Props): J
     <p
       className={cn(className, s.paragraph, {
         [s.paragraph_2]: type === 'p2',
+        [s.paragraph_3]: type === 'p3',
       })}
       {...props}
     >

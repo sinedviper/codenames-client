@@ -10,7 +10,9 @@ import paintcan from './paintcan.svg?react'
 import warn from './warn.svg?react'
 import cloud from './cloud.svg?react'
 import smile from './smile.svg?react'
+import trash from './trash.svg?react'
 
+export const SvgTrash: FC<SVGProps<SVGElement>> = trash
 export const SvgSmile: FC<SVGProps<SVGElement>> = smile
 export const SvgCloud: FC<SVGProps<SVGElement>> = cloud
 export const SvgWarn: FC<SVGProps<SVGElement>> = warn

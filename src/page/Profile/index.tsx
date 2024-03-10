@@ -2,6 +2,9 @@ import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import EmojiPicker, { Emoji, EmojiStyle } from 'emoji-picker-react'
 import cn from 'classnames'
+import { GithubPicker } from 'react-color'
+import { useState } from 'react'
+import { useFormik } from 'formik'
 
 import {
   BlobAnimation,
@@ -12,17 +15,23 @@ import {
   OrbitAnimation,
   TextHeader,
   TextParagraph,
+  WrapInput,
 } from 'components'
-import { SvgArrow, SvgCloud, SvgPaintcan, SvgSmile, SvgSpinner } from 'assets/svg'
+import { SvgArrow, SvgCloud, SvgPaintcan, SvgSmile, SvgSpinner, SvgTrash } from 'assets/svg'
 import { useAppDispatch, useAppSelector } from 'utils/hooks'
-import { getAuth, logout, useUpdateAuthMutation, useUploadImageMutation } from 'store/reducers/auth'
+import {
+  getAuth,
+  logout,
+  useDeleteImageMutation,
+  useUpdateAuthMutation,
+  useUploadImageMutation,
+} from 'store/reducers/auth'
+import { paramsBuilder } from 'utils/helpers'
+import { colors, schemaColor, schemaDate, schemaLogin, schemaPassword } from 'utils/contastants'
 
 import s from './styles.module.css'
-import { useFormik } from 'formik'
-import { paramsBuilder } from 'utils/helpers'
-import { useState } from 'react'
-import { colors } from 'utils/contastants'
-import { GithubPicker } from 'react-color'
+import { toFormikValidationSchema } from 'zod-formik-adapter'
+import z from 'zod'
 
 export const Profile = (): JSX.Element => {
   const navigate = useNavigate()
@@ -31,6 +40,7 @@ export const Profile = (): JSX.Element => {
   const { user } = useAppSelector(getAuth)
   const [updateUser, { isLoading }] = useUpdateAuthMutation()
   const [uploadImage, { isLoading: isLoad }] = useUploadImageMutation()
+  const [deleteImage, { isLoading: isLoadDel }] = useDeleteImageMutation()
 
   const [emoji, setEmoji] = useState(false)
   const [color, setColor] = useState(false)
@@ -50,18 +60,19 @@ export const Profile = (): JSX.Element => {
     [EInitial.COLOR]: user?.color ?? '',
   }
 
-  const formik = useFormik<TInitial>({ onSubmit, initialValues, enableReinitialize: true })
+  const formik = useFormik<TInitial>({
+    onSubmit,
+    initialValues,
+    enableReinitialize: true,
+    validationSchema,
+  })
 
   const handleExit = () => {
     dispatch(logout())
   }
 
-  const getRation = () => {
-    if (user?.lose && user?.lose > 0 && user?.wins && user?.wins > 0) {
-      return user?.lose / user?.wins
-    }
-
-    return 0
+  const handleDeleteImage = () => {
+    deleteImage({ id: user!.id })
   }
 
   const handleUpload = (e) => {
@@ -96,16 +107,28 @@ export const Profile = (): JSX.Element => {
           </div>
           <div
             className={cn(s.wrap_loading, {
-              [s.wrap_loading_active]: isLoad,
+              [s.wrap_loading_active]: isLoad || isLoadDel,
             })}
           >
             <SvgSpinner className={s.svg_spin} />
           </div>
           {!user?.avatar ? (
-            <Button className={s.wrap_change_color} onClick={() => setColor(true)}>
+            <Button
+              className={s.wrap_change_color}
+              disabled={formik.dirty}
+              onClick={() => setColor(true)}
+            >
               <SvgPaintcan />
             </Button>
-          ) : null}
+          ) : (
+            <Button
+              className={s.wrap_change_color}
+              disabled={formik.dirty}
+              onClick={handleDeleteImage}
+            >
+              <SvgTrash />
+            </Button>
+          )}
           <Button
             className={cn(s.wrap_smile, {
               [s.wrap_smile_active]: formik.values[EInitial.STATUS],
@@ -123,12 +146,13 @@ export const Profile = (): JSX.Element => {
               <SvgSmile />
             )}
           </Button>
-          <Button className={s.wrap_load}>
+          <Button className={s.wrap_load} disabled={formik.dirty}>
             <input
               multiple={false}
               type={'file'}
               onChange={handleUpload}
               className={s.input_load}
+              disabled={formik.dirty}
               accept='.webp, .png, .jpeg, .jpg, .webm'
             />
             <SvgCloud />
@@ -182,11 +206,15 @@ export const Profile = (): JSX.Element => {
           </section>
         </section>
       </div>
-      <Input
-        placeholder={t('Username')}
-        {...paramsBuilder({ values: EInitial.USERNAME, formik })}
-      />
-      <InputDate {...paramsBuilder({ values: EInitial.DATERECOVERY, formik })} />
+      <WrapInput error={formik.errors[EInitial.USERNAME]}>
+        <Input
+          placeholder={t('Username')}
+          {...paramsBuilder({ values: EInitial.USERNAME, formik })}
+        />
+      </WrapInput>
+      <WrapInput error={formik.errors[EInitial.DATERECOVERY]}>
+        <InputDate {...paramsBuilder({ values: EInitial.DATERECOVERY, formik })} />
+      </WrapInput>
       <Input
         type={'password'}
         placeholder={t('Password')}
@@ -233,6 +261,16 @@ enum EInitial {
   STATUS = 'status',
   COLOR = 'color',
 }
+
+const validationSchema = toFormikValidationSchema(
+  z.object({
+    [EInitial.USERNAME]: schemaLogin,
+    [EInitial.PASSWORD]: schemaPassword.nullish(),
+    [EInitial.NEWPASSWORD]: schemaPassword.nullish(),
+    [EInitial.COLOR]: schemaColor,
+    [EInitial.DATERECOVERY]: schemaDate,
+  }),
+)
 
 function calculateAverage(num1?: number, num2?: number): string {
   if (!num1 || !num2) {

@@ -13,9 +13,17 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTML
   disabled?: boolean
   clickBtn?: () => void
   value?: string
+  error?: string
 }
 
-export const Input = ({ className, clickBtn, value, type, ...props }: Props): JSX.Element => {
+export const Input = ({
+  className,
+  clickBtn,
+  value,
+  type,
+  error,
+  ...props
+}: Props): JSX.Element => {
   const [password, setPassword] = useState(false)
 
   return (
@@ -24,6 +32,7 @@ export const Input = ({ className, clickBtn, value, type, ...props }: Props): JS
         type={type === 'password' ? (password ? 'text' : 'password') : type}
         className={cn(className, s.input, {
           [s.input_pass]: type == 'password',
+          [s.input_error]: !!error,
         })}
         value={value}
         {...props}

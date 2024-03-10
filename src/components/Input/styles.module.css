@@ -30,6 +30,8 @@
     padding: 15px 38px 15px 15px;
 }
 
+
+
 .wrap_input {
     display: flex;
     align-items: center;
@@ -85,6 +87,15 @@
     border: 1px solid var(--accent);
     transition: var(--transition);
 }
+
+.input_error, .input_error:hover, .input_error:active, .input_error:focus {
+    border: 1px solid var(--danger);
+}
+
+.input_error + .wrap_svg > svg path {
+    fill: var(--danger);
+}
+
 
 @media screen and (max-width: 1023px) {
     .input {

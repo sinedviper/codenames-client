@@ -13,6 +13,7 @@ interface Props
   value?: string | null
   onChange?: (value: { target: { id?: string; name?: string; value: string | null } }) => void
   disabled?: boolean
+  error?: string
 }
 
 export const InputDate = ({
@@ -22,15 +23,20 @@ export const InputDate = ({
   onChange,
   className,
   disabled,
+  error,
+  onBlur,
 }: Props): JSX.Element => {
   return (
     <DatePicker
       id={id}
       name={name}
-      className={cn(className)}
+      className={cn(className, {
+        [s.input_error]: !!error,
+      })}
       onChange={(value) => onChange && onChange({ target: { id, name, value: `${value ?? ''}` } })}
       value={value}
-      calendarIcon={<SvgCalendar />}
+      onBlur={onBlur}
+      calendarIcon={<SvgCalendar className={cn({ [s.wrap_svg_error]: !!error })} />}
       clearIcon={
         <SvgClose
           className={cn({

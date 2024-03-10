@@ -9,7 +9,7 @@ export function Footer(): JSX.Element {
   return (
     <footer className={s.footer}>
       <TextParagraph type={'p2'}>
-        &#xa9;{new Date().getFullYear() + ' ' + t('footer')}
+        &#xa9;{new Date().getFullYear() + ' ' + t('footer')} v7.5.3
       </TextParagraph>
     </footer>
   )

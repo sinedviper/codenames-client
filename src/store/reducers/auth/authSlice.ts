@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { toast } from 'react-toastify'
 import { jwtDecode } from 'jwt-decode'
 
-import { loginAuth, registrationAuth, updateAuth, uploadImage } from './authApi'
+import { deleteImage, loginAuth, registrationAuth, updateAuth, uploadImage } from './authApi'
 import { IResLogin, TUser } from 'utils/types'
 
 type initialType = {
@@ -47,6 +47,9 @@ export const authReducer = createSlice({
       .addMatcher(uploadImage.matchPending, authPending)
       .addMatcher(uploadImage.matchFulfilled, authFulfilled)
       .addMatcher(uploadImage.matchRejected, authRejected)
+      .addMatcher(deleteImage.matchPending, authPending)
+      .addMatcher(deleteImage.matchFulfilled, authFulfilled)
+      .addMatcher(deleteImage.matchRejected, authRejected)
   },
 })
 

@@ -1,10 +1,13 @@
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useFormik } from 'formik'
+import { toFormikValidationSchema } from 'zod-formik-adapter'
+import z from 'zod'
+
 import { paramsBuilder } from 'utils/helpers'
 import { useRegistrationAuthMutation } from 'store/reducers/auth'
-
-import { Button, Input, InputColor, InputDate, TextHeader } from 'components'
+import { schemaColor, schemaDate, schemaLogin, schemaPassword } from 'utils/contastants'
+import { Button, Input, InputColor, InputDate, TextHeader, WrapInput } from 'components'
 import { SvgArrow } from 'assets/svg'
 
 import s from './styles.module.css'
@@ -22,7 +25,7 @@ export const Registration = (): JSX.Element => {
     })
   }
 
-  const formik = useFormik<TInitial>({ initialValues, onSubmit })
+  const formik = useFormik<TInitial>({ initialValues, onSubmit, validationSchema })
 
   return (
     <div className={s.wrapper_login}>
@@ -33,18 +36,29 @@ export const Registration = (): JSX.Element => {
       </Button>
       <TextHeader type={'h2'}>{t('registration')}</TextHeader>
       <div className={s.wrap_inputs}>
-        <Input
-          type={'text'}
-          placeholder={t('login')}
-          {...paramsBuilder({ values: EAuth.USERNAME, formik })}
-        />
-        <InputColor placeholder={t('color')} {...paramsBuilder({ values: EAuth.COLOR, formik })} />
-        <InputDate {...paramsBuilder({ values: EAuth.DATE, formik })} />
-        <Input
-          type={'password'}
-          placeholder={t('password')}
-          {...paramsBuilder({ values: EAuth.PASSWORD, formik })}
-        />
+        <WrapInput error={formik.errors[EAuth.USERNAME]}>
+          <Input
+            type={'text'}
+            placeholder={t('login')}
+            {...paramsBuilder({ values: EAuth.USERNAME, formik })}
+          />
+        </WrapInput>
+        <WrapInput error={formik.errors[EAuth.COLOR]}>
+          <InputColor
+            placeholder={t('color')}
+            {...paramsBuilder({ values: EAuth.COLOR, formik })}
+          />
+        </WrapInput>
+        <WrapInput error={formik.errors[EAuth.DATE]}>
+          <InputDate {...paramsBuilder({ values: EAuth.DATE, formik })} />
+        </WrapInput>
+        <WrapInput error={formik.errors[EAuth.PASSWORD]}>
+          <Input
+            type={'password'}
+            placeholder={t('password')}
+            {...paramsBuilder({ values: EAuth.PASSWORD, formik })}
+          />
+        </WrapInput>
         {/*<Input*/}
         {/*  type={'password'}*/}
         {/*  placeholder={t('passwordcor')}*/}
@@ -69,6 +83,15 @@ enum EAuth {
   PASSWORD = 'password',
   PASSWORDCOR = 'passwordCorrect',
 }
+
+const validationSchema = toFormikValidationSchema(
+  z.object({
+    [EAuth.USERNAME]: schemaLogin,
+    [EAuth.PASSWORD]: schemaPassword,
+    [EAuth.DATE]: schemaDate,
+    [EAuth.COLOR]: schemaColor,
+  }),
+)
 
 type TInitial = {
   [EAuth.USERNAME]: string

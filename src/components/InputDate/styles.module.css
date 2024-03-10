@@ -1,6 +1,15 @@
-
-
 .svg_none {
     opacity: 0;
     transition: var(--transition);
+}
+
+.input_error {
+    > div, > div:hover {
+        border-color: var(--danger);
+    }
+}
+.wrap_svg_error {
+    path {
+        fill:var(--danger)
+    }
 }

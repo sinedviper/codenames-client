@@ -81,10 +81,20 @@ export const authApi = api.injectEndpoints({
       transformErrorResponse,
       transformResponse,
     }),
+    deleteImage: build.mutation<IResLogin, { id: number }>({
+      query: (body) => ({
+        url: 'images',
+        method: 'DELETE',
+        body,
+      }),
+      transformErrorResponse,
+      transformResponse,
+    }),
   }),
 })
 
 export const {
+  useDeleteImageMutation,
   useUploadImageMutation,
   useUpdateAuthMutation,
   useLoginAuthMutation,
@@ -92,5 +102,5 @@ export const {
 } = authApi
 
 export const {
-  endpoints: { uploadImage, registrationAuth, loginAuth, updateAuth },
+  endpoints: { deleteImage, uploadImage, registrationAuth, loginAuth, updateAuth },
 } = authApi
