@@ -7,6 +7,7 @@
   "signin": "Sign-in",
   "login": "Login",
   "password": "Password",
+  "newpassword": "New password",
   "registration": "Registration",
   "enter": "Enter",
   "profile": "Profile",
@@ -28,6 +29,7 @@
   "exitprofile": "Exit profile",
   "settings": "Settings",
   "save": "Save",
+  "advancedsettings": "Advanced settings",
   "downloaderror": "Download error",
   "ratinwl": "Ration  W/L",
   "points": "Points",
@@ -36,5 +38,10 @@
   "min6sim": "Minimum number of 6 characters",
   "max20sim": "Maximum number of 20 characters",
   "logvalidation": "The login must contain only Latin letters and at least one number",
-  "passvalidation": "The password must contain only Latin letters and at least one number and one uppercase letter"
+  "passvalidation": "The password must contain only Latin letters and at least one number and one uppercase letter",
+  "passwordforlogin": "Password for login",
+  "cardlanguage": "Card language",
+  "translationlanguage": "Translation language",
+  "translationofcards": "Translation of cards",
+  "closedroom": "Closed room"
 }

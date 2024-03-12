@@ -9,6 +9,7 @@ import { useLoginAuthMutation } from 'store/reducers/auth'
 import { Button, Input, TextHeader, WrapInput } from 'components'
 import { SvgArrow } from 'assets/svg'
 import { schemaLogin, schemaPassword } from 'utils/contastants'
+import { EInitial } from 'utils/enum'
 
 import s from './styles.module.css'
 
@@ -40,18 +41,18 @@ export const Login = (): JSX.Element => {
       </Button>
       <TextHeader type={'h2'}>{t('signin')}</TextHeader>
       <div className={s.wrap_inputs}>
-        <WrapInput error={formik.errors[EAuth.USERNAME]}>
+        <WrapInput error={formik.errors[EInitial.USERNAME]}>
           <Input
             type={'text'}
             placeholder={t('login')}
-            {...paramsBuilder({ values: EAuth.USERNAME, formik })}
+            {...paramsBuilder({ values: EInitial.USERNAME, formik })}
           />
         </WrapInput>
-        <WrapInput error={formik.errors[EAuth.PASSWORD]}>
+        <WrapInput error={formik.errors[EInitial.PASSWORD]}>
           <Input
             type={'password'}
             placeholder={t('password')}
-            {...paramsBuilder({ values: EAuth.PASSWORD, formik })}
+            {...paramsBuilder({ values: EInitial.PASSWORD, formik })}
           />
         </WrapInput>
       </div>
@@ -66,24 +67,19 @@ export const Login = (): JSX.Element => {
   )
 }
 
-enum EAuth {
-  USERNAME = 'username',
-  PASSWORD = 'password',
-}
-
 const validationSchema = toFormikValidationSchema(
   z.object({
-    [EAuth.USERNAME]: schemaLogin,
-    [EAuth.PASSWORD]: schemaPassword,
+    [EInitial.USERNAME]: schemaLogin,
+    [EInitial.PASSWORD]: schemaPassword,
   }),
 )
 
 type TInitial = {
-  [EAuth.USERNAME]: string
-  [EAuth.PASSWORD]: string
+  [EInitial.USERNAME]: string
+  [EInitial.PASSWORD]: string
 }
 
 const initialValues: TInitial = {
-  [EAuth.USERNAME]: '',
-  [EAuth.PASSWORD]: '',
+  [EInitial.USERNAME]: '',
+  [EInitial.PASSWORD]: '',
 }

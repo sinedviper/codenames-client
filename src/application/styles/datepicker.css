@@ -28,6 +28,7 @@
     padding: 10px;
     align-items: center;
     transition: var(--transition);
+    background: var(--dark);
 }
 
 .react-date-picker__wrapper:hover {
