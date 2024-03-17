@@ -12,7 +12,7 @@ export const schemaPassword = z
   .max(20, 'max20sim')
   .regex(/^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$/, 'passvalidation')
 
-export const schemaDate = z.custom<string>(
+export const schemaDate = z.custom<Date>(
   (val) => {
     if (!val) {
       return false

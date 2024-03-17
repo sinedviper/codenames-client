@@ -1,3 +1,4 @@
+import { FocusEvent } from 'react'
 import { FormikProps } from 'formik'
 
 type paramsType<T> = {
@@ -5,16 +6,19 @@ type paramsType<T> = {
   formik: FormikProps<T>
 }
 
-type returnParams<T> = {
+type returnParams<Value> = {
   id: string
   name: string
-  onChange: (v: any) => void
-  value: T
+  onChange: (value?: { target: { id?: string; name?: string; value: Value } }) => void
+  value: Value
   error: string
-  onBlur: (v: any) => void
+  onBlur: (value?: FocusEvent<HTMLInputElement>) => void
 }
 
-export const paramsBuilder = <T, O>({ values, formik }: paramsType<T>): returnParams<O> => {
+export const paramsBuilder = <InitialFormik, Value>({
+  values,
+  formik,
+}: paramsType<InitialFormik>): returnParams<Value> => {
   return {
     id: values,
     name: values,

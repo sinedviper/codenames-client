@@ -39,7 +39,7 @@ export const Profile = (): JSX.Element => {
   const initialValues = {
     [EInitial.USERNAME]: user?.username ?? '',
     [EInitial.PASSWORD]: '',
-    [EInitial.DATERECOVERY]: user?.date_recover ?? null,
+    [EInitial.DATERECOVERY]: user?.date_recover ? new Date(user.date_recover) : undefined,
     [EInitial.NEWPASSWORD]: '',
     [EInitial.STATUS]: user?.status ?? '',
     [EInitial.COLOR]: user?.color ?? '',
@@ -74,24 +74,26 @@ export const Profile = (): JSX.Element => {
         <WrapInput error={formik.errors[EInitial.USERNAME]}>
           <Input
             placeholder={t('login')}
-            {...paramsBuilder({ values: EInitial.USERNAME, formik })}
+            {...paramsBuilder<TInitial, string>({ values: EInitial.USERNAME, formik })}
           />
         </WrapInput>
-        <WrapInput error={formik.errors[EInitial.DATERECOVERY]}>
-          <InputDate {...paramsBuilder({ values: EInitial.DATERECOVERY, formik })} />
+        <WrapInput error={formik.errors[EInitial.DATERECOVERY]?.toString()}>
+          <InputDate
+            {...paramsBuilder<TInitial, Date>({ values: EInitial.DATERECOVERY, formik })}
+          />
         </WrapInput>
         <WrapInput error={formik.errors[EInitial.PASSWORD]}>
           <Input
             type={'password'}
             placeholder={t('password')}
-            {...paramsBuilder({ values: EInitial.PASSWORD, formik })}
+            {...paramsBuilder<TInitial, string>({ values: EInitial.PASSWORD, formik })}
           />
         </WrapInput>
         <WrapInput error={formik.errors[EInitial.NEWPASSWORD]}>
           <Input
             type={'password'}
             placeholder={t('newpassword')}
-            {...paramsBuilder({ values: EInitial.NEWPASSWORD, formik })}
+            {...paramsBuilder<TInitial, string>({ values: EInitial.NEWPASSWORD, formik })}
           />
         </WrapInput>
         <Button
@@ -118,7 +120,7 @@ export type TInitial = {
   [EInitial.USERNAME]: string
   [EInitial.PASSWORD]: string
   [EInitial.NEWPASSWORD]: string
-  [EInitial.DATERECOVERY]: Date | null
+  [EInitial.DATERECOVERY]: Date | undefined
   [EInitial.COLOR]: string
   [EInitial.STATUS]: string
 }

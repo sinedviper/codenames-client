@@ -1,0 +1,21 @@
+.wrapper {
+    z-index: 3000;
+    padding-top: 10px;
+}
+
+.wrap_select {
+    background: var(--dark);
+    border-radius: 10px;
+    border: 1px solid var(--light);
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+}
+
+.wrap_select_active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+    transition: var(--transition);
+}
