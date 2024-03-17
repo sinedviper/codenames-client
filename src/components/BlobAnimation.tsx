@@ -7,7 +7,7 @@ export default interface Props
 
 export const BlobAnimation = ({ className, colorBlob, id }: Props): JSX.Element => {
   return (
-    <div className={className}>
+    <section className={className}>
       <svg
         viewBox='0 0 500 500'
         xmlns='http://www.w3.org/2000/svg'
@@ -41,6 +41,6 @@ export const BlobAnimation = ({ className, colorBlob, id }: Props): JSX.Element 
           ></animate>
         </path>
       </svg>
-    </div>
+    </section>
   )
 }

@@ -7,7 +7,7 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDi
 
 export const OrbitAnimation = ({ strokeLine = 4, strokeWidth = 0.4, ...props }: Props) => {
   return (
-    <div {...props}>
+    <section {...props}>
       <svg width='100%' height='100%' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
         <circle
           cx='100'
@@ -19,6 +19,6 @@ export const OrbitAnimation = ({ strokeLine = 4, strokeWidth = 0.4, ...props }: 
           strokeDasharray={strokeLine}
         />
       </svg>
-    </div>
+    </section>
   )
 }

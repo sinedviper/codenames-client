@@ -53,3 +53,8 @@
     transition: var(--transition);
     transform: scale(1);
 }
+
+.input_error[type="checkbox"]:before {
+    border: 1px solid var(--danger);
+    transition: var(--transition);
+}

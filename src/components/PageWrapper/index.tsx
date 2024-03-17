@@ -56,10 +56,8 @@ export function PageWrapper(): JSX.Element {
     return { first: '--appear', second: '--appear' }
   }
 
-  //console.log(navigator.geolocation.getCurrentPosition(console.log))
-
   return (
-    <div className={s.wrapper}>
+    <main className={s.wrapper}>
       <SwitchTransition>
         <CSSTransition
           key={pathname}
@@ -69,9 +67,9 @@ export function PageWrapper(): JSX.Element {
           unmountOnExit
         >
           {() => (
-            <main ref={nodeRef} className='main'>
+            <section ref={nodeRef} className='main'>
               {currentOutlet}
-            </main>
+            </section>
           )}
         </CSSTransition>
       </SwitchTransition>
@@ -80,6 +78,6 @@ export function PageWrapper(): JSX.Element {
       <OrbitAnimation className={s.orbit_1} />
       <OrbitAnimation className={s.orbit_2} />
       <OrbitAnimation className={s.orbit_3} />
-    </div>
+    </main>
   )
 }

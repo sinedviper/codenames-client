@@ -11,7 +11,9 @@ import warn from './warn.svg?react'
 import cloud from './cloud.svg?react'
 import smile from './smile.svg?react'
 import trash from './trash.svg?react'
+import triangle from './triangle.svg?react'
 
+export const SvgTriangle: FC<SVGProps<SVGElement>> = triangle
 export const SvgTrash: FC<SVGProps<SVGElement>> = trash
 export const SvgSmile: FC<SVGProps<SVGElement>> = smile
 export const SvgCloud: FC<SVGProps<SVGElement>> = cloud
