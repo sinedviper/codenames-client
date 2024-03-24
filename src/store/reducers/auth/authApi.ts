@@ -1,5 +1,6 @@
 import { api } from 'store/services/api'
-import { IResLogin, TResponse } from 'utils/types'
+import { IResLogin } from 'utils/types'
+import { transformErrorResponse, transformResponse } from 'utils/helpers'
 
 export interface LoginUser {
   username: string
@@ -16,31 +17,9 @@ export interface UpdateUser {
   date_recover?: Date | null
 }
 
-export interface IUploadImage {
-  image: FormData
-}
-
 export interface RegistrationUser extends LoginUser {
   color: string
   date_recover: Date
-}
-
-const transformErrorResponse = (res: TResponse<IResLogin>) => {
-  if (
-    res.status === 400 ||
-    res.status === 401 ||
-    res.status === 404 ||
-    res.status === 406 ||
-    res.status === 417 ||
-    res.status === 409 ||
-    res.status === 500
-  ) {
-    return res.data.message
-  }
-}
-
-const transformResponse = (res: TResponse<IResLogin>): IResLogin => {
-  return res.data as IResLogin
 }
 
 export const authApi = api.injectEndpoints({

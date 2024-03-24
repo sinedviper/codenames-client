@@ -1,5 +1,4 @@
 import {
-  ChangeEvent,
   DetailedHTMLProps,
   FocusEvent,
   ForwardedRef,
@@ -15,35 +14,71 @@ import { Button } from 'components'
 
 import s from './styles.module.css'
 
-interface Props
-  extends Omit<
-    DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement>,
-    'onChange' | 'onBlur' | 'ref'
-  > {
-  type?: 'text' | 'password' | 'color'
+type TProp = Omit<
+  DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement>,
+  'onChange' | 'onBlur' | 'ref'
+> & {
+  className?: string
   maxLength?: number
   minLength?: number
   disabled?: boolean
   clickBtn?: () => void
-  value?: string
   error?: string
   name?: string
   btn?: ReactNode
   handleBtn?: () => void
-  onChange?: (value?: ChangeEvent<HTMLInputElement>) => void
   onBlur?: (value?: FocusEvent<HTMLInputElement>) => void
+  placeholder?: string
+  id?: string
 }
+
+type TInputString = TProp & {
+  type?: 'text' | 'password' | 'color'
+  value?: string
+  defaultValue?: string
+  onChange?: (value?: { target: { id?: string; name?: string; value: string } }) => void
+}
+
+type TInputNumber = TProp & {
+  type?: 'number'
+  value?: number
+  defaultValue?: number
+  onChange?: (value?: { target: { id?: string; name?: string; value: string } }) => void
+}
+
+type Props = TInputString | TInputNumber
 
 export const Input = forwardRef(
   (
-    { className, clickBtn, value, type, error, name, btn, handleBtn, ...props }: Props,
+    {
+      className,
+      clickBtn,
+      value,
+      type,
+      error,
+      name,
+      btn,
+      handleBtn,
+      placeholder,
+      onBlur,
+      maxLength,
+      minLength,
+      onChange,
+      disabled,
+      id,
+      defaultValue,
+      onClick,
+      ...props
+    }: Props,
     ref?: ForwardedRef<HTMLInputElement>,
   ): JSX.Element => {
     const [password, setPassword] = useState(false)
 
     return (
-      <div className={s.wrap_input}>
+      <div className={s.wrap_input} onClick={onClick}>
         <input
+          id={id}
+          defaultValue={defaultValue}
           ref={ref}
           name={name}
           type={type === 'password' ? (password ? 'text' : 'password') : type}
@@ -51,7 +86,13 @@ export const Input = forwardRef(
             [s.input_pass]: type == 'password' || type === 'color' || btn,
             [s.input_error]: !!error,
           })}
+          onBlur={onBlur}
+          onChange={onChange}
+          disabled={disabled}
+          maxLength={maxLength}
+          minLength={minLength}
           value={value}
+          placeholder={placeholder}
           {...props}
         />
         {type == 'password' ? (

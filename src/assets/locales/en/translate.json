@@ -43,5 +43,11 @@
   "cardlanguage": "Card language",
   "translationlanguage": "Translation language",
   "translationofcards": "Translation of cards",
-  "closedroom": "Closed room"
+  "closedroom": "Closed room",
+  "starttime": "Start time (seconds)",
+  "betweentime": "Time between rounds (seconds)",
+  "roundstime": "Round time (seconds)",
+  "additionaltime": "Additional seconds when guessing a word (seconds)",
+  "entertime": "Enter the time",
+  "numbertime": "Number of words"
 }

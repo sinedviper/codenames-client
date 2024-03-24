@@ -12,10 +12,12 @@ import {
 } from 'redux-persist'
 
 import { authReducer } from './reducers/auth'
+import { roomReducer } from './reducers/room'
 import { api } from './services/api.ts'
 
 const reducer = combineReducers({
   auth: authReducer.reducer,
+  room: roomReducer.reducer,
   [api.reducerPath]: api.reducer,
 })
 

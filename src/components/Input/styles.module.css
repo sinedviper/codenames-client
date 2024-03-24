@@ -11,6 +11,12 @@
     border: 1px solid var(--light);
     width: 100%;
     transition: var(--transition);
+    -moz-appearance: textfield;
+}
+
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }
 
 .input[type="color"] {

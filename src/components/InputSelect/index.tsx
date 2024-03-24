@@ -1,7 +1,7 @@
-import { DetailedHTMLProps, FocusEvent, HTMLAttributes } from 'react'
+import { DetailedHTMLProps, FocusEvent, HTMLAttributes, useEffect, useState } from 'react'
 import cn from 'classnames'
 
-import { useWindowInput } from 'utils/hooks'
+import { useOutsideClick, useWindowInput } from 'utils/hooks'
 import { SvgTriangle } from 'assets/svg'
 
 import { Input } from '../Input'
@@ -21,8 +21,9 @@ interface Props
   error?: string
   onBlur?: (value?: FocusEvent<HTMLInputElement>) => void
   arraySelect: Array<{ id: number; value: string }>
-  isLoading: boolean
+  isLoading?: boolean
   placeholder?: string
+  isDefault?: boolean
 }
 
 export const InputSelect = ({
@@ -34,16 +35,44 @@ export const InputSelect = ({
   onBlur,
   arraySelect,
   placeholder,
+  isLoading,
+  isDefault,
 }: Props) => {
-  const { showStyle, showWindow, floatingStyles, refs, context, hideWindow, toggleWindow } =
-    useWindowInput()
+  const {
+    showStyle,
+    showWindow,
+    showedWindow,
+    floatingStyles,
+    refs,
+    context,
+    hideWindow,
+    toggleWindow,
+  } = useWindowInput()
 
-  const handleSave = (value: number) => {
+  const [input, setInput] = useState(arraySelect.find((val) => val.id === value)?.value ?? '')
+
+  const handleSave = (value: { id: number; value: string }) => {
     if (onChange && value) {
-      onChange({ target: { id, name, value } })
+      onChange({ target: { id, name, value: value.id } })
+      setInput(value.value)
       hideWindow()
     }
   }
+
+  const handleChange = (e) => {
+    setInput(e.target.value)
+    if (!showWindow && !showStyle) {
+      showedWindow()
+    }
+  }
+
+  useEffect(() => {
+    if (typeof isLoading === 'boolean' && !isLoading && isDefault) {
+      if (!value) {
+        handleSave(arraySelect[0])
+      }
+    }
+  }, [isLoading])
 
   return (
     <div className={s.wrap_input}>
@@ -51,13 +80,13 @@ export const InputSelect = ({
         ref={refs.setReference}
         id={id}
         name={name}
-        value={arraySelect.find((val) => val.id === value)?.value ?? undefined}
-        disabled
+        value={input}
         error={error}
         placeholder={placeholder}
         btn={<SvgTriangle />}
         onBlur={onBlur}
-        handleBtn={toggleWindow}
+        onClick={() => showedWindow()}
+        onChange={handleChange}
       />
       <WindowInput
         context={context}
@@ -69,19 +98,21 @@ export const InputSelect = ({
         cssProperty={floatingStyles}
       >
         <ul className={s.wrapper_list}>
-          {arraySelect.map((val) => (
-            <li
-              key={val.id}
-              className={cn(s.list_card, {
-                [s.list_card_active]: val.id === value,
-              })}
-              onClick={() => handleSave(val.id)}
-            >
-              <TextParagraph type={'p2'} className={s.text_card}>
-                {val.value}
-              </TextParagraph>
-            </li>
-          ))}
+          {arraySelect
+            .filter((val) => String(val.value).includes(input))
+            .map((val) => (
+              <li
+                key={val.id}
+                className={cn(s.list_card, {
+                  [s.list_card_active]: val.id === value,
+                })}
+                onClick={() => handleSave(val)}
+              >
+                <TextParagraph type={'p2'} className={s.text_card}>
+                  {val.value}
+                </TextParagraph>
+              </li>
+            ))}
         </ul>
       </WindowInput>
     </div>

@@ -32,7 +32,9 @@ export const Profile = (): JSX.Element => {
 
   const onSubmit = (params: TInitial) => {
     const date_recover =
-      params.date_recover === user?.date_recover ? null : new Date(params.date_recover!)
+      params.date_recover?.toDateString() === new Date(user?.date_recover ?? '').toDateString()
+        ? null
+        : new Date(params.date_recover!)
     updateUser({ id: Number(user?.id), ...params, date_recover })
   }
 

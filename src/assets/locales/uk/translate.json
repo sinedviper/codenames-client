@@ -43,5 +43,11 @@
   "cardlanguage": "Мова карток",
   "translationlanguage": "Мова перекладу",
   "translationofcards": "Переклад карток",
-  "closedroom": "Закрита кімната"
+  "closedroom": "Закрита кімната",
+  "starttime": "Початковий час (секунд)",
+  "betweentime": "Час між раундами (секунд)",
+  "roundstime": "Час раунду (секунд)",
+  "additionaltime": "Додаткові секунди при вгадуванні слова (секунд)",
+  "entertime": "Введіть час",
+  "numbertime": "Кількість слів"
 }

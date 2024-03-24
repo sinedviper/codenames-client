@@ -8,6 +8,7 @@ interface IUseWindowInput {
   hideWindow: () => void
   floatingStyles: CSSProperties
   context: FloatingContext
+  showedWindow: () => void
   refs: {
     reference: MutableRefObject<ReferenceType | null>
     floating: MutableRefObject<HTMLElement | null>
@@ -31,12 +32,16 @@ export const useWindowInput = (): IUseWindowInput => {
     setTimeout(() => setWindowCreate(false), 300)
   }
 
+  const showedWindow = () => {
+    setWindowCreate(true)
+    setTimeout(() => setWindowOpen(true), 0)
+  }
+
   const toggleWindow = () => {
     if (windowCreate) {
       hideWindow()
     } else {
-      setWindowCreate(true)
-      setTimeout(() => setWindowOpen(true), 0)
+      showedWindow()
     }
   }
 
@@ -47,6 +52,7 @@ export const useWindowInput = (): IUseWindowInput => {
     showStyle: windowOpen,
     toggleWindow,
     hideWindow,
+    showedWindow,
     context,
   }
 }
